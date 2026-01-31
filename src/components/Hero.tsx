@@ -3,16 +3,10 @@ import BackgroundVideo from "./BackgroundVideo";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black selection:bg-yellow-500/30">
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden selection:bg-yellow-500/30">
       {/*Background Layer: Video + Gradients */}
       <div className="absolute inset-0 z-0">
         <BackgroundVideo />
-        {/* Dark Overlay to ensure text pops */}
-        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
-        {/* Yellow Glow Effect (The "Batcave" lighting) */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-125 bg-yellow-500/10 blur-[120px] rounded-full pointer-events-none" />
-        {/* Bottom Fade to blend with next section */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black to-transparent" />
       </div>
 
       {/* Main Content Container */}
@@ -29,7 +23,7 @@ export default function Hero() {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
           </span>
           <span className="text-sm font-medium text-gray-300">
-            Accepting New Clients
+            Ready to get clipping
           </span>
         </motion.div>
 
@@ -39,7 +33,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.9]"
+            className="text-left text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.9]"
           >
             We Grow Your Brand
           </motion.h1>
@@ -48,7 +42,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9]"
+            className="text-left text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9]"
           >
             With{" "}
             <span className="text-transparent bg-clip-text bg-linear-to-r from-yellow-300 via-yellow-500 to-yellow-600">
@@ -110,10 +104,6 @@ export default function Hero() {
           <p className="text-sm font-medium uppercase tracking-widest text-gray-500">
             We Work With 👇
           </p>
-
-          {/* Marquee Placeholder - The actual Marquee can be imported from Clients.tsx if preferred, 
-              but here is the visual cue to match the reference text location. */}
-          {/* <div className="h-px w-24 bg-linear-to-r from-transparent via-yellow-500/50 to-transparent" /> */}
         </motion.div>
       </div>
     </section>
