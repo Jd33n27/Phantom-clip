@@ -3,7 +3,8 @@
 
 @layer base {
   :root {
-    --brand-yellow: #ffd700;
+    --brand-purple: #a855f7; /* Tailwind purple-500 */
+    --brand-purple-dark: #7e22ce; /* Tailwind purple-700 */
     --brand-black: #000000;
   }
 
@@ -17,15 +18,13 @@
     @apply bg-black text-white antialiased overflow-x-hidden;
   }
 
-  /* Custom Selection Color (Yellow Highlight) */
   ::selection {
-    background-color: rgba(255, 215, 0, 0.2); /* Low opacity yellow */
-    color: #ffd700;
+    background-color: rgba(168, 85, 247, 0.2); /* Low opacity purple */
+    color: #a855f7;
   }
 }
 
 @layer utilities {
-  /* Hides scrollbar but allows scrolling (standard Framer behavior) */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
@@ -34,21 +33,8 @@
     scrollbar-width: none;
   }
 
-  /* Smooth fade mask for marquees */
   .mask-linear-fade {
-    mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 20%,
-      black 80%,
-      transparent
-    );
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent,
-      black 20%,
-      black 80%,
-      transparent
-    );
+    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
   }
 }

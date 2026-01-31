@@ -1,123 +1,171 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [activeSection, setActiveSection] = useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Handle scroll effect for glass background
+  // Scroll Handling: Hide/Show on scroll & Active State Detection
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const currentScrollY = window.scrollY;
+      
+      // Hide/Show Logic
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        setIsVisible(false);
+      } else {
+        setIsVisible(true);
+      }
+      setLastScrollY(currentScrollY);
+
+      // Active Section Logic (Simple scroll detection)
+      const sections = ["Hero", "About", "Process", "Faq"];
+      for (const section of sections) {
+        const element = document.getElementById(section.toLowerCase());
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top >= -100 && rect.top <= 200) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+      // Special case for Home (top of page)
+      if (currentScrollY < 100) setActiveSection("Home");
     };
+
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [lastScrollY]);
 
   const navLinks = [
     { name: "Home", href: "#" },
     { name: "About", href: "#about" },
-    { name: "Contact", href: "#contact" },
+    { name: "Process", href: "#process" },
     { name: "FAQ", href: "#faq" },
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b ${
-        isScrolled
-          ? "bg-black/70 backdrop-blur-xl border-white/10 py-4"
-          : "bg-transparent border-transparent py-6"
-      }`}
-    >
-      <div className="max-w-360 mx-auto px-6 flex items-center justify-between">
-        {/* Logo Area */}
-        <a href="/" className="relative z-50 group">
-            <img src="/logo.jpg" alt="Logo" className="h-8 w-auto" />
-        </a>
-
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-1 bg-white/5 rounded-full p-1 border border-white/10 backdrop-blur-md">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="relative px-6 py-2 text-sm font-medium text-gray-400 transition-colors hover:text-white group"
-            >
-              <span className="relative z-10">{link.name}</span>
-              {/* Gradient Text Effect on Hover (Reference Style) */}
-              <span
-                className="absolute inset-0 z-10 block bg-linear-to-r from-white via-white/80 to-transparent bg-clip-text text-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 px-6 py-2 select-none pointer-events-none"
-                aria-hidden="true"
-              >
-                {link.name}
-              </span>
-            </a>
-          ))}
-        </div>
-
-        {/* Desktop CTA */}
-        <div className="hidden md:block">
-          <a
-            href="#" //https://calendly.com/roimediainc/buildyourclippingarm
-            className="px-6 py-2.5 rounded-lg bg-yellow-500 text-black font-bold text-sm hover:bg-yellow-400 transition-all shadow-[0_0_15px_rgba(234,179,8,0.3)] hover:shadow-[0_0_25px_rgba(234,179,8,0.5)] active:scale-95"
-          >
-            Get In Touch
-          </a>
-        </div>
-
-        {/* Mobile Toggle */}
-        <button
-          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          className="md:hidden relative z-50 w-10 h-10 flex flex-col justify-center items-center gap-1.5"
+    <>
+      <motion.nav
+        initial={{ y: 0 }}
+        animate={{ y: isVisible ? 0 : "-100%" }}
+        transition={{ duration: 0.3, ease: "easeInOut" }}
+        className="fixed top-0 left-0 right-0 z-50 w-full"
+      >
+        {/* Glassmorphism Container mimicking the Framer snippet */}
+        <div 
+          className="w-full backdrop-blur-xl border-b border-white/10"
+          style={{
+            background: "linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(20, 0, 30, 0.8) 100%)"
+          }}
         >
-          <motion.span
-            animate={
-              isMobileMenuOpen ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }
-            }
-            className="w-6 h-0.5 bg-white block"
-          />
-          <motion.span
-            animate={isMobileMenuOpen ? { opacity: 0 } : { opacity: 1 }}
-            className="w-6 h-0.5 bg-white block"
-          />
-          <motion.span
-            animate={
-              isMobileMenuOpen ? { rotate: -45, y: -10 } : { rotate: 0, y: 0 }
-            }
-            className="w-6 h-0.5 bg-white block"
-          />
-        </button>
+          <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
+            {/* Left Side: Logo & Separator */}
+            <div className="flex items-center gap-6">
+              <a href="#" className="relative group block overflow-hidden rounded-full border border-white/10 shadow-[0_0_15px_rgba(147,51,234,0.3)]">
+                <img 
+                  src="/logo.png" 
+                  alt="Phantom Clips" 
+                  className="size-15 object-cover" 
+                />
+              </a>
+              
+              {/* Vertical Separator from snippet */}
+              <div className="hidden md:block h-8 w-px bg-linear-to-b from-transparent via-white/20 to-transparent" />
 
-        {/* Mobile Menu Overlay */}
+              {/* Desktop Nav Links */}
+              <div className="hidden md:flex items-center gap-1">
+                {navLinks.map((link) => {
+                  const isActive = activeSection === link.name;
+                  return (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      onClick={() => setActiveSection(link.name)}
+                      className="relative px-4 py-2 text-sm font-medium transition-all duration-300"
+                    >
+                      {/* Active State Text Styling */}
+                      <span className={`${isActive ? "text-white" : "text-white/60 hover:text-white"}`}>
+                        {link.name}
+                      </span>
+                      
+                      {/* Active Underline Glow */}
+                      {isActive && (
+                        <motion.div
+                          layoutId="active-nav"
+                          className="absolute bottom-0 left-0 w-full h-px bg-purple-500 shadow-[0_0_10px_#a855f7]"
+                        />
+                      )}
+                    </a>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Right Side: CTA Button */}
+            <div className="hidden md:flex items-center">
+              <a
+                href="#contact"
+                className="group relative px-6 py-2.5 rounded-lg bg-purple-600 text-white font-semibold text-sm transition-all duration-300 shadow-[0_8px_40px_rgba(147,51,234,0.4)] hover:shadow-[0_8px_50px_rgba(147,51,234,0.6)] hover:bg-purple-500 active:scale-95 border border-white/10"
+              >
+                <span className="relative z-10">Get In Touch</span>
+                {/* Inner Glow */}
+                <div className="absolute inset-0 rounded-lg bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </a>
+            </div>
+
+            {/* Mobile Menu Toggle */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="md:hidden text-white/80 hover:text-purple-400 transition-colors"
+            >
+              {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="absolute top-full left-0 w-full bg-black/95 backdrop-blur-2xl border-b border-white/10 p-6 md:hidden flex flex-col gap-4 shadow-2xl"
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-black/95 backdrop-blur-2xl border-b border-purple-500/20 overflow-hidden"
             >
-              {navLinks.map((link) => (
+              <div className="flex flex-col p-6 space-y-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => {
+                      setActiveSection(link.name);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className={`text-lg font-medium transition-colors ${
+                      activeSection === link.name ? "text-purple-400" : "text-gray-400"
+                    }`}
+                  >
+                    {link.name}
+                  </a>
+                ))}
+                <div className="h-px w-full bg-white/10 my-4" />
                 <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-lg font-medium text-gray-300 hover:text-yellow-500 transition-colors"
+                  href="#contact"
+                  className="w-full py-3 rounded-lg bg-purple-600 text-white font-bold text-center shadow-[0_0_20px_rgba(147,51,234,0.4)]"
                 >
-                  {link.name}
+                  Get In Touch
                 </a>
-              ))}
-              <hr className="border-white/10 my-2" />
-              <a
-                href="#" //https://calendly.com/roimediainc/buildyourclippingarmy
-                className="w-full py-3 rounded-lg bg-yellow-500 text-black font-bold text-center hover:bg-yellow-400 transition-colors"
-              >
-                Get In Touch
-              </a>
+              </div>
             </motion.div>
           )}
         </AnimatePresence>
-      </div>
-    </nav>
+      </motion.nav>
+    </>
   );
 }

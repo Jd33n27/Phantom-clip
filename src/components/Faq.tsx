@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import SectionSeparator from "./SectionSeparator";
 
-// FAQ Content Data
+// Keeping your original content
 const faqs = [
   {
     question: "What do I need to get started?",
@@ -29,35 +30,24 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section
-      id="faq"
-      className="w-full py-32 bg-black flex flex-col items-center px-6"
-    >
-    
-      {/* Header Section */}
-      <div className="mb-20 text-left">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6"
-        >
-          <span className="w-2 h-2 rounded-full bg-yellow-500 animate-ping" />
-          <span className="text-sm font-medium text-gray-300">FAQ</span>
-        </motion.div>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
-        >
-          Frequently <span className="text-white/50">Asked Questions</span>
-        </motion.h2>
+    <section id="faq" className="w-full py-24 bg-purple-900/30 flex flex-col items-center px-6">
+      
+      {/* 1. Header Section matching the snippet */}
+      <div className="-mb-10 text-center">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl text-purple-400 font-serif italic tracking-tight">
+          <span className="text-white font-sans font-medium not-italic mr-2">
+            Questions you
+          </span>
+          might be asking
+        </h2>
       </div>
 
-      {/* Accordion Container */}
+      {/* 2. Separator */}
+      <div className="mb-16 w-full flex justify-center">
+        <SectionSeparator width="max-w-xs" />
+      </div>
+
+      {/* 3. Accordion Container */}
       <div className="w-full max-w-3xl flex flex-col gap-4">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
@@ -70,34 +60,33 @@ export default function Faq() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              className={`group relative overflow-hidden rounded-2xl border transition-all duration-500 cursor-pointer ${
-                isOpen
-                  ? "bg-white/8 border-yellow-500/50 shadow-[0_0_30px_-10px_rgba(234,179,8,0.3)]"
-                  : "bg-white/5 border-white/10 hover:bg-white/[0.07] hover:border-white/20"
-              }`}
+              className="group relative overflow-hidden rounded-[14px] cursor-pointer transition-all duration-300"
+              style={{
+                // Exact gradient and border from the snippet
+                background: "linear-gradient(180deg, rgba(153, 58, 241, 0.4) 0%, rgba(26, 8, 43, 0.4) 100%)",
+                border: "1px solid rgb(153, 58, 241)",
+              }}
             >
               {/* Question Header */}
-              <div className="flex items-center justify-between p-6 md:p-8">
-                <h3
-                  className={`text-lg md:text-xl font-medium transition-colors ${
-                    isOpen
-                      ? "text-white"
-                      : "text-gray-300 group-hover:text-white"
-                  }`}
-                >
+              <div className="flex items-center justify-between p-6">
+                <h3 className="text-lg md:text-xl font-bold text-white text-left pr-4">
                   {faq.question}
                 </h3>
 
-                {/* Plus/Minus Icon */}
-                <div
-                  className={`relative size-4 p-5 rounded-full flex items-center justify-center transition-transform duration-500 ${isOpen ? "rotate-180 bg-gray-400/30 " : "bg-yellow-500/30"}`}
+                {/* Icon Container - Purple Square */}
+                <div 
+                  className="shrink-0 w-10 h-10 rounded-[10px] flex items-center justify-center transition-colors"
+                  style={{ backgroundColor: "rgb(174, 87, 255)" }}
                 >
-                  <span
-                    className={`absolute w-[50%] h-0.5 bg-current transition-colors ${isOpen ? "bg-yellow-500" : "bg-gray-400"}`}
-                  />
-                  <span
-                    className={`absolute h-[50%] w-0.5 bg-current transition-all ${isOpen ? "bg-yellow-500 rotate-90 opacity-0" : "bg-gray-400 rotate-0"}`}
-                  />
+                  <div className="relative w-3.5 h-3.5">
+                     {/* Horizontal Line */}
+                    <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white -translate-y-1/2" />
+                    {/* Vertical Line (Rotates) */}
+                    <motion.span
+                      animate={{ rotate: isOpen ? 90 : 0, opacity: isOpen ? 0 : 1 }}
+                      className="absolute top-0 left-1/2 h-full w-0.5 bg-white -translate-x-1/2"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -110,22 +99,14 @@ export default function Faq() {
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-6 md:px-8 pb-8 pt-0">
-                      <p className="text-gray-400 leading-relaxed text-lg">
+                    <div className="px-6 pb-6 pt-0">
+                      <p className="text-gray-200 leading-relaxed text-base md:text-lg">
                         {faq.answer}
                       </p>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-
-              {/* Active Glow Effect (Bottom Line) */}
-              {isOpen && (
-                <motion.div
-                  layoutId="active-glow"
-                  className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-500 to-transparent opacity-50"
-                />
-              )}
             </motion.div>
           );
         })}

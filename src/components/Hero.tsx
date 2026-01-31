@@ -1,109 +1,71 @@
 import { motion } from "framer-motion";
 import BackgroundVideo from "./BackgroundVideo";
+import SectionSeparator from "./SectionSeparator";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden selection:bg-yellow-500/30">
-      {/*Background Layer: Video + Gradients */}
+    <section className="relative w-full min-h-screen flex flex-col items-center bg-transparent justify-center overflow-hidden">
+      {/* Background Layer */}
       <div className="absolute inset-0 z-0">
         <BackgroundVideo />
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 w-full max-w-360 px-6 flex flex-col items-center text-center mt-20">
-        {/* Animated Badge / Tag */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
+      <div className="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center text-center mt-20">
+      
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md"
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tighter leading-[1.1] mb-[-60px]"
         >
-          <span className="relative flex h-2 w-2">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+          <span className="font-serif italic font-normal text-purple-200">
+            Attention is the real currency. We help you earn more of it.
           </span>
-          <span className="text-sm font-medium text-gray-300">
-            Ready to get clipping
-          </span>
-        </motion.div>
+        </motion.h1>
+        <SectionSeparator />
 
-        {/* Headlines */}
-        <div className="max-w-5xl mx-auto space-y-2">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-left text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.9]"
-          >
-            We Grow Your Brand
-          </motion.h1>
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-left text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9]"
-          >
-            With{" "}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-yellow-300 via-yellow-500 to-yellow-600">
-              Clipping.
-            </span>
-          </motion.h1>
-        </div>
-
-        {/* Body Copy */}
+        {/* Subheadline */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="mt-8 max-w-2xl text-lg md:text-xl text-gray-400 leading-relaxed"
+          className="max-w-2xl mx-auto mb-10"
         >
-          <p>
-            We'll build you a mass content distribution system that scales your
-            brand to new heights with an army of clippers. We have generated
-            over{" "}
-            <span className="text-white font-bold decoration-yellow-500/50 underline underline-offset-4 decoration-2">
-              2 Billion+ views
-            </span>{" "}
-            for our clients with our systems. From creators to brands, we make
-            your content explode across all platforms.
+          <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
+            <span className="text-white font-semibold">
+              A system that turns long-form content into visibility, followers,
+              and consistent demand—across every platform worth attention.
+            </span>
           </p>
         </motion.div>
 
-        {/* Buttons */}
+        {/* CTA Button */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="mt-10 flex flex-col sm:flex-row items-center gap-4"
+          className="flex flex-col items-center gap-6"
         >
-          {/* Primary Action - Solid Yellow */}
           <a
-            href="https://calendly.com/roimediainc/buildyourclippingarmy"
-            className="group relative h-12 w-full sm:w-48 overflow-hidden rounded-lg bg-yellow-500 font-semibold text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] active:scale-95 flex items-center justify-center"
+            href="https://calendly.com/roimediainc/buildyourclippingarmy" // Keeping your original link
+            className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_1px_40px_rgba(176,92,255,0.4)]"
+            style={{
+              background:
+                "linear-gradient(90deg, rgb(164, 66, 255) 0%, rgb(106, 25, 181) 100%)",
+            }}
           >
-            <span className="relative z-10">Get In Touch</span>
+            <span className="relative z-10 uppercase tracking-wide">
+              Book "The" Call
+            </span>
+            <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
           </a>
 
-          {/* Secondary Action - Glass */}
-          <a
-            href="/about"
-            className="h-12 w-full sm:w-48 rounded-lg border border-white/10 bg-white/5 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20 active:scale-95 flex items-center justify-center"
-          >
-            About Us
-          </a>
-        </motion.div>
-
-        {/* Social Proof Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-20 md:mt-32 flex flex-col items-center gap-4"
-        >
-          <p className="text-sm font-medium uppercase tracking-widest text-gray-500">
-            We Work With 👇
-          </p>
+          {/* Bottom Tagline */}
+          <div className="flex items-center gap-2 text-white/95 text-sm font-medium">
+            <div className="w-2 h-2 rounded-full animate-pulse bg-white" />
+            <span>No extra filming. An army of clippers.</span>
+          </div>
         </motion.div>
       </div>
     </section>
