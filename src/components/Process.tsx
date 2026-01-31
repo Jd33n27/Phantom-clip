@@ -71,7 +71,7 @@ export default function Process() {
           >
             {/* Top Image/Icon Area */}
             <div
-              className={`h-48 w-full bg-linear-to-b ${step.linear} relative flex items-center justify-center border-b border-white/5`}
+              className={`h-48 w-full bg-linear-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}
             >
               {/* Central Icon Circle */}
               <div className="relative w-20 h-20 rounded-full border border-purple-500/30 flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
