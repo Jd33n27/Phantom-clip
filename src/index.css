@@ -1,1 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @import "tailwindcss";
+
+@layer base {
+  :root {
+    --brand-yellow: #ffd700;
+    --brand-black: #000000;
+  }
+
+  html {
+    font-family: "DM Sans", sans-serif;
+    scroll-behavior: smooth;
+    background-color: black;
+  }
+
+  body {
+    @apply bg-black text-white antialiased overflow-x-hidden;
+  }
+
+  /* Custom Selection Color (Yellow Highlight) */
+  ::selection {
+    background-color: rgba(255, 215, 0, 0.2); /* Low opacity yellow */
+    color: #ffd700;
+  }
+}
+
+@layer utilities {
+  /* Hides scrollbar but allows scrolling (standard Framer behavior) */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Smooth fade mask for marquees */
+  .mask-linear-fade {
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    );
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      black 20%,
+      black 80%,
+      transparent
+    );
+  }
+}

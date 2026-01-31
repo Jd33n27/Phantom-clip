@@ -1,6 +1,5 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import BackgroundVideo from "./components/BackgroundVideo";
 import ClientShowcase from "./components/Clients";
 import Process from "./components/Process";
 import FAQ from "./components/Faq";
@@ -10,7 +9,6 @@ function App() {
     <>
       <Navbar />
       <Hero />
-      <BackgroundVideo />
       <ClientShowcase />
       <Process />
       <FAQ />

@@ -1,96 +1,118 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Minus } from 'lucide-react';
 
-const faqData = [
+// FAQ Content Data
+const faqs = [
   {
     question: "What do I need to get started?",
-    answer: "Access to your long-form content (YouTube, Podcasts, etc.) and a clear understanding of your brand goals. We handle the technical infrastructure, but the raw content is your ammunition."
+    answer: "Getting started is simple. We just need access to your source content (Google Drive, YouTube channel, or Twitch VODs) and a quick alignment call to understand your brand voice. Our team handles the curation, editing, and distribution strategy from there."
   },
   {
     question: "Will I need to do anything?",
-    answer: "Minimal effort is required from your side. Once the pipeline is established, your only job is to provide content and review the monthly impact reports. We operate in the shadows so you can stay in the spotlight."
+    answer: "Very little. Our goal is to save you time. Apart from providing the initial content and approving the final clips (if you choose to review them), our 'Army of Clippers' manages the entire distribution process independently."
+  },
+  {
+    question: "How does the 'Clipping Army' work?",
+    answer: "We recruit, vet, and manage a dedicated team of video editors specifically for your brand. They are trained on your style guidelines and incentivized to produce high-performing content that drives views and engagement across TikTok, Shorts, and Reels."
+  },
+  {
+    question: "Do I own the content?",
+    answer: "Yes, absolutely. All derivative content created by our clippers belongs to your brand. You can repost, repurpose, or use the clips in ads however you see fit."
   }
 ];
 
-const FAQ: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+export default function Faq () {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="relative py-32 bg-black text-white overflow-hidden">
+    <section id="faq" className="w-full py-32 bg-black flex flex-col items-center px-6">
       
-      {/* BACKGROUND DEPTH */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#FFD700]/5 rounded-full blur-[120px] pointer-events-none" />
+      {/* Header Section */}
+      <div className="mb-20 text-center">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-md mb-6"
+        >
+          <span className="w-2 h-2 rounded-full bg-yellow-500 animate-pulse"/>
+          <span className="text-sm font-medium text-gray-300">FAQ</span>
+        </motion.div>
 
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-        
-        {/* LEFT: TITLE CONTENT */}
-        <div className="space-y-8">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[#FFD700]/20 bg-[#FFD700]/5">
-            <div className="w-1.5 h-1.5 rounded-full bg-[#FFD700]" />
-            <span className="text-[#FFD700] font-mono text-[10px] uppercase tracking-widest font-bold">Inquiry Feed</span>
-          </div>
+        <motion.h2 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-4xl md:text-6xl font-bold tracking-tighter text-white"
+        >
+          Frequently <span className="text-white/50">Asked Questions</span>
+        </motion.h2>
+      </div>
 
-          <div className="space-y-2">
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none">
-              FREQUENTLY
-            </h2>
-            <h2 className="text-5xl md:text-7xl font-black tracking-tighter leading-none text-white/40">
-              ASKED QUESTIONS.
-            </h2>
-          </div>
+      {/* Accordion Container */}
+      <div className="w-full max-w-3xl flex flex-col gap-4">
+        {faqs.map((faq, index) => {
+          const isOpen = openIndex === index;
 
-          <p className="text-white/40 max-w-md text-lg leading-relaxed">
-            Everything you need to know about deploying the Phantom network for your brand.
-          </p>
-        </div>
-
-        {/* RIGHT: ACCORDION GRID */}
-        <div className="space-y-4">
-          {faqData.map((item, index) => (
-            <motion.div 
+          return (
+            <motion.div
               key={index}
-              className={`border border-white/10 rounded-[20px] overflow-hidden transition-all duration-300 
-                ${activeIndex === index ? 'bg-[#0A0A0A] border-[#FFD700]/30' : 'bg-[#080808] hover:border-white/20'}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              onClick={() => setOpenIndex(isOpen ? null : index)}
+              className={`group relative overflow-hidden rounded-2xl border transition-all duration-500 cursor-pointer ${
+                isOpen 
+                  ? 'bg-white/8 border-yellow-500/50 shadow-[0_0_30px_-10px_rgba(234,179,8,0.3)]' 
+                  : 'bg-white/5 border-white/10 hover:bg-white/[0.07] hover:border-white/20'
+              }`}
             >
-              <button
-                onClick={() => setActiveIndex(activeIndex === index ? null : index)}
-                className="w-full flex items-center justify-between p-6 text-left group"
-              >
-                <span className={`text-lg font-bold tracking-tight transition-colors 
-                  ${activeIndex === index ? 'text-[#FFD700]' : 'text-white'}`}>
-                  {item.question}
-                </span>
+              {/* Question Header */}
+              <div className="flex items-center justify-between p-6 md:p-8">
+                <h3 className={`text-lg md:text-xl font-medium transition-colors ${
+                  isOpen ? 'text-white' : 'text-gray-300 group-hover:text-white'
+                }`}>
+                  {faq.question}
+                </h3>
                 
-                <div className={`p-2 rounded-full border transition-all duration-300 
-                  ${activeIndex === index ? 'bg-[#FFD700] border-[#FFD700] text-black rotate-90' : 'bg-white/5 border-white/10 text-white'}`}>
-                  {activeIndex === index ? <Minus size={18} strokeWidth={3} /> : <Plus size={18} strokeWidth={3} />}
+                {/* Plus/Minus Icon */}
+                <div className={`relative w-6 h-6 flex items-center justify-center transition-transform duration-500 ${isOpen ? 'rotate-180' : ''}`}>
+                  <span className={`absolute w-full h-0.5 bg-current transition-colors ${isOpen ? 'bg-yellow-500' : 'bg-gray-400'}`} />
+                  <span className={`absolute h-full w-0.5 bg-current transition-all ${isOpen ? 'bg-yellow-500 rotate-90 opacity-0' : 'bg-gray-400 rotate-0'}`} />
                 </div>
-              </button>
+              </div>
 
+              {/* Expandable Answer */}
               <AnimatePresence>
-                {activeIndex === index && (
+                {isOpen && (
                   <motion.div
                     initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
+                    animate={{ height: 'auto', opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
                   >
-                    <div className="px-6 pb-8 text-white/60 leading-relaxed font-medium">
-                      {/* Subtle yellow indicator line inside */}
-                      <div className="w-full h-[1px] bg-gradient-to-r from-[#FFD700]/20 to-transparent mb-6" />
-                      {item.answer}
+                    <div className="px-6 md:px-8 pb-8 pt-0">
+                      <p className="text-gray-400 leading-relaxed text-lg">
+                        {faq.answer}
+                      </p>
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
-            </motion.div>
-          ))}
-        </div>
 
+              {/* Active Glow Effect (Bottom Line) */}
+              {isOpen && (
+                <motion.div 
+                  layoutId="active-glow"
+                  className="absolute bottom-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-yellow-500 to-transparent opacity-50"
+                />
+              )}
+            </motion.div>
+          );
+        })}
       </div>
     </section>
   );
 };
-
-export default FAQ;

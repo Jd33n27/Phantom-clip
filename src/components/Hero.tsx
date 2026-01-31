@@ -1,92 +1,121 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import BackgroundVideo from "./BackgroundVideo";
 
-const logos = [
-  "https://framerusercontent.com/images/7FfRyFJsXoV35dt4q6z6uk0TNQ.png",
-  "https://framerusercontent.com/images/npA0L3yLcr9DrQg9xdUyPCRIz94.png",
-  "https://framerusercontent.com/images/pn50Cuab3kdWoza5WVi4gm2i6c.png",
-  "https://framerusercontent.com/images/ypb1scdnShhuKuxwcDCpgw4k3k.png",
-];
-
-const Hero: React.FC = () => {
+export default function Hero() {
   return (
-    <section className="relative pt-32 pb-20 overflow-hidden bg-black text-white">
-      
-      {/* BACKGROUND DEPTH - The "Batcave" Lighting */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-yellow-500/5 rounded-full blur-[120px] pointer-events-none" />
+    <section className="relative w-full min-h-screen flex flex-col items-center justify-center overflow-hidden bg-black selection:bg-yellow-500/30">
+      {/*Background Layer: Video + Gradients */}
+      <div className="absolute inset-0 z-0">
+        <BackgroundVideo />
+        {/* Dark Overlay to ensure text pops */}
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]" />
+        {/* Yellow Glow Effect (The "Batcave" lighting) */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-125 bg-yellow-500/10 blur-[120px] rounded-full pointer-events-none" />
+        {/* Bottom Fade to blend with next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-black to-transparent" />
+      </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col items-center text-center">
-        
-        {/* TOP: TITLE & TAGLINE */}
-        <motion.div 
+      {/* Main Content Container */}
+      <div className="relative z-10 w-full max-w-360 px-6 flex flex-col items-center text-center mt-20">
+        {/* Animated Badge / Tag */}
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="space-y-4"
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 backdrop-blur-md"
         >
-          <h1 className="text-5xl md:text-8xl font-black tracking-tighter leading-[0.9]">
-            WE GROW YOUR BRAND <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#FFD700] to-[#b8860b]">
-              WITH CLIPPING.
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-yellow-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-yellow-500"></span>
+          </span>
+          <span className="text-sm font-medium text-gray-300">
+            Accepting New Clients
+          </span>
+        </motion.div>
+
+        {/* Headlines */}
+        <div className="max-w-5xl mx-auto space-y-2">
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold text-white tracking-tighter leading-[0.9]"
+          >
+            We Grow Your Brand
+          </motion.h1>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[0.9]"
+          >
+            With{" "}
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-yellow-300 via-yellow-500 to-yellow-600">
+              Clipping.
             </span>
-          </h1>
-          
-          <p className="max-w-2xl mx-auto text-gray-400 text-lg md:text-xl font-medium leading-relaxed mt-8">
-            We'll build you a <span className="text-white">mass content distribution system</span> that scales your brand to new heights with an army of clippers. 
-            Over <span className="text-[#FFD700] font-bold underline decoration-yellow-500/30">2 Billion+ views</span> generated for our clients.
+          </motion.h1>
+        </div>
+
+        {/* Body Copy */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-8 max-w-2xl text-lg md:text-xl text-gray-400 leading-relaxed"
+        >
+          <p>
+            We'll build you a mass content distribution system that scales your
+            brand to new heights with an army of clippers. We have generated
+            over{" "}
+            <span className="text-white font-bold decoration-yellow-500/50 underline underline-offset-4 decoration-2">
+              2 Billion+ views
+            </span>{" "}
+            for our clients with our systems. From creators to brands, we make
+            your content explode across all platforms.
           </p>
         </motion.div>
 
-        {/* BUTTONS: Dual Action */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.3, duration: 0.8 }}
-          className="flex flex-wrap items-center justify-center gap-4 mt-10"
+        {/* Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="mt-10 flex flex-col sm:flex-row items-center gap-4"
         >
-          <a href="#contact" className="px-8 py-4 bg-[#FFD700] text-black font-black uppercase tracking-tighter rounded-xl hover:bg-white transition-colors duration-300 shadow-[0_0_30px_rgba(255,215,0,0.2)]">
-            Get In Touch
+          {/* Primary Action - Solid Yellow */}
+          <a
+            href="https://calendly.com/roimediainc/buildyourclippingarmy"
+            className="group relative h-12 w-full sm:w-48 overflow-hidden rounded-lg bg-yellow-500 font-semibold text-black shadow-[0_0_20px_rgba(234,179,8,0.3)] transition-all hover:bg-yellow-400 hover:shadow-[0_0_30px_rgba(234,179,8,0.5)] active:scale-95 flex items-center justify-center"
+          >
+            <span className="relative z-10">Get In Touch</span>
           </a>
-          <a href="#about" className="px-8 py-4 bg-white/10 text-white font-bold uppercase tracking-tighter rounded-xl border border-white/10 backdrop-blur-sm hover:bg-white/20 transition-all">
+
+          {/* Secondary Action - Glass */}
+          <a
+            href="/about"
+            className="h-12 w-full sm:w-48 rounded-lg border border-white/10 bg-white/5 font-semibold text-white backdrop-blur-sm transition-all hover:bg-white/10 hover:border-white/20 active:scale-95 flex items-center justify-center"
+          >
             About Us
           </a>
         </motion.div>
 
-        {/* BOTTOM: SOCIAL PROOF / LOGO MARQUEE */}
-        <div className="mt-32 w-full">
-          <p className="text-[10px] font-mono tracking-[0.4em] text-gray-500 uppercase mb-8">
-            Trusted by the world's elite
+        {/* Social Proof Indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 1, delay: 0.8 }}
+          className="mt-20 md:mt-32 flex flex-col items-center gap-4"
+        >
+          <p className="text-sm font-medium uppercase tracking-widest text-gray-500">
+            We Work With 👇
           </p>
-          
-          {/* THE SEPARATOR LINE */}
-          <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-white/10 to-transparent mb-12" />
 
-          {/* INFINITE MARQUEE */}
-          <div className="relative flex overflow-hidden group">
-            <motion.div 
-              animate={{ x: ["0%", "-50%"] }}
-              transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
-              className="flex gap-20 items-center whitespace-nowrap"
-            >
-              {[...logos, ...logos].map((logo, index) => (
-                <img 
-                  key={index}
-                  src={logo} 
-                  alt="Client Logo" 
-                  className="h-12 md:h-16 w-auto grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 cursor-pointer"
-                />
-              ))}
-            </motion.div>
-            
-            {/* Fade Gradients for the Marquee Edges */}
-            <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10" />
-            <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10" />
-          </div>
-        </div>
-
+          {/* Marquee Placeholder - The actual Marquee can be imported from Clients.tsx if preferred, 
+              but here is the visual cue to match the reference text location. */}
+          {/* <div className="h-px w-24 bg-linear-to-r from-transparent via-yellow-500/50 to-transparent" /> */}
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
