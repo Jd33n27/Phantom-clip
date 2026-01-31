@@ -71,14 +71,14 @@ export default function Process() {
           >
             {/* Top Image/Icon Area */}
             <div
-              className={`h-48 w-full bg-gradient-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}
+              className={`h-48 w-full bg-linear-to-b ${step.linear} relative flex items-center justify-center border-b border-white/5`}
             >
               {/* Central Icon Circle */}
               <div className="relative w-20 h-20 rounded-full border border-purple-500/30 flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
                 {step.icon}
                 {/* Connecting Lines (Decorative) */}
-                <div className="absolute top-1/2 -left-full w-full h-px bg-gradient-to-r from-transparent to-purple-500/20" />
-                <div className="absolute top-1/2 -right-full w-full h-px bg-gradient-to-l from-transparent to-purple-500/20" />
+                <div className="absolute top-1/2 -left-full w-full h-px bg-linear-to-r from-transparent to-purple-500/20" />
+                <div className="absolute top-1/2 -right-full w-full h-px bg-linear-to-l from-transparent to-purple-500/20" />
               </div>
 
               {/* Stage Tag */}
@@ -99,7 +99,7 @@ export default function Process() {
               </div>
 
               {/* Description */}
-              <p className="text-gray-400 leading-relaxed text-sm mb-8 flex-grow">
+              <p className="text-gray-400 leading-relaxed text-sm mb-8 grow">
                 {step.description}
               </p>
 
@@ -136,7 +136,7 @@ export default function Process() {
       </div>
 
       {/* Decorative Connector Line at Bottom */}
-      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-purple-900/50 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-purple-900/50 to-transparent" />
     </section>
   );
 }

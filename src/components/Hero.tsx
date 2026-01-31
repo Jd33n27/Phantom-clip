@@ -17,7 +17,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tighter leading-[1.1] mb-[-60px]"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tighter leading-[1.1] -mb-15"
         >
           <span className="font-serif italic font-normal text-purple-200">
             Attention is the real currency. We help you earn more of it.

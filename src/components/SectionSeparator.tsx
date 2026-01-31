@@ -18,7 +18,7 @@ export default function SectionSeparator({
         
         {/* The Main Brush Stroke */}
         <div 
-          className="relative h-3 w-full rounded-[50%] bg-gradient-to-r from-purple-700 via-purple-400 to-purple-700 shadow-[0_0_15px_rgba(168,85,247,0.5)]" 
+          className="relative h-3 w-full rounded-[50%] bg-linear-to-r from-purple-700 via-purple-400 to-purple-700 shadow-[0_0_15px_rgba(168,85,247,0.5)]" 
           style={{
              clipPath: "polygon(2% 40%, 100% 0%, 98% 100%, 0% 100%)",
              transform: "rotate(-1deg)"

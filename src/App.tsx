@@ -1,29 +1,40 @@
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-// import ClientShowcase from "./components/Clients";
 import Process from "./components/Process";
 import FAQ from "./components/Faq";
 import Footer from "./components/Footer";
-// import BackgroundVideo from "./components/BackgroundVideo";
 import LogoTicker from "./components/Ticker";
+import VSLSection from "./components/VSLSection"; 
+import Contact from "./components/Contact"; 
 
 function App() {
   return (
-    <div className="relative">
-      {/* <BackgroundVideo /> */}
+    <div className="relative min-h-screen">
       <Navbar />
+
       <div id="home">
         <Hero />
       </div>
-      {/* <ClientShowcase />
-       */}
-       <LogoTicker />
+
+      {/* Insert VSL Section here as the primary "Hook" after Hero */}
+      
+
+      <LogoTicker />
+
       <div id="process">
         <Process />
       </div>
+
+      <VSLSection />
+
       <div id="faq">
         <FAQ />
       </div>
+
+      <div id="contact">
+      <Contact />
+      </div>
+
       <Footer />
     </div>
   );

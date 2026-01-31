@@ -12,7 +12,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       // Hide/Show Logic
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setIsVisible(false);
@@ -57,24 +57,33 @@ export default function Navbar() {
         className="fixed top-0 left-0 right-0 z-50 w-full"
       >
         {/* Glassmorphism Container mimicking the Framer snippet */}
-        <div 
+        <div
           className="w-full backdrop-blur-xl border-b border-white/10"
           style={{
-            background: "linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(20, 0, 30, 0.8) 100%)"
+            background:
+              "linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(20, 0, 30, 0.8) 100%)",
           }}
         >
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            
             {/* Left Side: Logo & Separator */}
             <div className="flex items-center gap-6">
-              <a href="#" className="relative group block overflow-hidden rounded-full border border-white/10 shadow-[0_0_15px_rgba(147,51,234,0.3)]">
-                <img 
-                  src="/logo.png" 
-                  alt="Phantom Clips" 
-                  className="size-15 object-cover" 
+            <div className="flex flex-col items-center">
+              <a
+                href="#"
+                className="relative group block overflow-hidden rounded-full border border-white/10 shadow-[0_0_15px_rgba(147,51,234,0.3)]"
+              >
+                <img
+                  src="/logo.png"
+                  alt="Phantom Clips"
+                  className="size-15 object-cover"
                 />
+                
               </a>
-              
+              <h2 className="relative z-10 text-sm font-bold text-purple-400 tracking-wider">
+                  Phantom Clip
+                </h2>
+                </div>
+
               {/* Vertical Separator from snippet */}
               <div className="hidden md:block h-8 w-px bg-linear-to-b from-transparent via-white/20 to-transparent" />
 
@@ -90,10 +99,12 @@ export default function Navbar() {
                       className="relative px-4 py-2 text-sm font-medium transition-all duration-300"
                     >
                       {/* Active State Text Styling */}
-                      <span className={`${isActive ? "text-white" : "text-white/60 hover:text-white"}`}>
+                      <span
+                        className={`${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
+                      >
                         {link.name}
                       </span>
-                      
+
                       {/* Active Underline Glow */}
                       {isActive && (
                         <motion.div
@@ -148,7 +159,9 @@ export default function Navbar() {
                       setIsMobileMenuOpen(false);
                     }}
                     className={`text-lg font-medium transition-colors ${
-                      activeSection === link.name ? "text-purple-400" : "text-gray-400"
+                      activeSection === link.name
+                        ? "text-purple-400"
+                        : "text-gray-400"
                     }`}
                   >
                     {link.name}
