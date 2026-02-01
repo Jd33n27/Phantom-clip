@@ -9,7 +9,7 @@ interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {
 export default function SpotlightCard({
   children,
   className = "",
-  spotlightColor = "rgba(168, 85, 247, 0.25)", // Brand Purple
+  spotlightColor = "rgba(71, 1, 1, 0.35)", // Wine Red
   ...props
 }: SpotlightCardProps) {
   const divRef = useRef<HTMLDivElement>(null);
@@ -22,13 +22,8 @@ export default function SpotlightCard({
     setPosition({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  const handleFocus = () => {
-    setOpacity(1);
-  };
-
-  const handleBlur = () => {
-    setOpacity(0);
-  };
+  const handleFocus = () => setOpacity(1);
+  const handleBlur = () => setOpacity(0);
 
   return (
     <div

@@ -29,7 +29,7 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="w-full py-24 bg-purple-900/30 flex flex-col items-center px-6">
+    <section id="faq" className="w-full py-24 bg-wine/30 flex flex-col items-center px-6">
       
       {/* Header Section */}
       <div className="-mb-10 text-center">
