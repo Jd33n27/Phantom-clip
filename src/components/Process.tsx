@@ -42,9 +42,12 @@ export default function Process() {
     >
       <div className="max-w-7xl mx-auto flex flex-col items-center mb-20 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 bg-white/5 mb-6">
-          <span className="w-2 h-2 rounded-full bg-[#470101] animate-pulse" />
-          <span className="text-sm font-medium text-red-100">How We Work?</span>
+          <span className="w-2 h-2 rounded-full bg-wine animate-pulse" />
+          <span className="text-sm font-medium text-red-100">
+            How We Work?
+          </span>
         </div>
+
         <h2 className="text-4xl md:text-6xl font-bold text-white mb-4">
           We Handle Everything
         </h2>
@@ -63,19 +66,15 @@ export default function Process() {
             viewport={{ once: true }}
             className="h-full"
           >
-            <SpotlightCard
-              className="flex flex-col h-full group"
-              spotlightColor="rgba(71, 1, 1, 0.25)"
-            >
-              <div
-                className={`h-48 w-full bg-linear-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}
-              >
-                <div className="relative w-20 h-20 rounded-full border border-red-900/30 flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(71,1,1,0.3)]">
+            <SpotlightCard className="flex flex-col h-full group" spotlightColor="rgba(71, 1, 1, 0.25)">
+              <div className={`h-48 w-full bg-linear-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}>
+                <div className="relative w-20 h-20 rounded-full border border-red-900/30 flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(71,1,1,0.2)]">
                   {step.icon}
                   <div className="absolute top-1/2 -left-full w-full h-px bg-linear-to-r from-transparent to-red-900/20" />
                   <div className="absolute top-1/2 -right-full w-full h-px bg-linear-to-l from-transparent to-red-900/20" />
                 </div>
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full border border-white/5 bg-black/40 text-xs font-semibold text-red-200">
+
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full border border-white/5 bg-black/40 text-xs font-semibold text-red-300">
                   {step.stage}
                 </div>
               </div>
@@ -87,24 +86,24 @@ export default function Process() {
                   </h4>
                   <SectionSeparator className="max-w-25" />
                 </div>
+
                 <p className="text-gray-400 leading-relaxed text-sm mb-8 grow">
                   {step.description}
                 </p>
+
                 <div className="space-y-6 mt-auto">
                   {step.cta && (
                     <a
                       href="#"
-                      className="block w-full py-3 rounded-xl bg-[#470101] hover:bg-[#6b0202] text-white font-bold text-center transition-all shadow-[0_0_20px_rgba(71,1,1,0.4)] hover:shadow-[0_0_25px_rgba(71,1,1,0.6)] mb-6"
+                      className="block w-full py-3 rounded-xl bg-wine hover:bg-wine-light text-white font-bold text-center transition-all shadow-[0_0_20px_rgba(71,1,1,0.3)] hover:shadow-[0_0_25px_rgba(71,1,1,0.5)] mb-6"
                     >
                       Book an Appointment
                     </a>
                   )}
+
                   <div className="flex flex-wrap gap-2">
                     {step.tags.map((tag, i) => (
-                      <div
-                        key={i}
-                        className="px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 text-xs text-gray-300 font-medium"
-                      >
+                      <div key={i} className="px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 text-xs text-gray-300 font-medium">
                         {tag}
                       </div>
                     ))}

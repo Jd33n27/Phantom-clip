@@ -4,61 +4,59 @@ import { X } from "lucide-react";
 interface VSLModalProps {
   isOpen: boolean;
   onClose: () => void;
-  videoUrl: string; // URL for the video (YouTube embed or file path)
   title: string;
+  videoUrl: string;
 }
 
 export default function VSLModal({
   isOpen,
   onClose,
-  videoUrl,
   title,
+  videoUrl,
 }: VSLModalProps) {
   return (
     <AnimatePresence>
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          className="fixed inset-0 z-100 flex items-center justify-center px-4"
-        >
+        <div className="fixed inset-0 z-100 flex items-center justify-center p-4 md:p-10">
           {/* Backdrop */}
-          <div
-            className="absolute inset-0 bg-black/90 backdrop-blur-md"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
             onClick={onClose}
+            className="absolute inset-0 bg-black/90 backdrop-blur-md"
           />
 
-          {/* Modal Content  */}
+          {/* Modal Content */}
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            className="relative w-full max-w-2xl bg-zinc-900 border border-purple-500/30 rounded-2xl overflow-hidden shadow-[0_0_50px_rgba(168,85,247,0.2)]"
+            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+            className="relative w-full max-w-5xl aspect-video bg-black rounded-3xl overflow-hidden border border-wine/30 shadow-[0_0_100px_rgba(71,1,1,0.3)]"
           >
-            {/* Header */}
-            <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-black/50">
-              <h3 className="text-white font-bold text-lg">{title}</h3>
+            {/* Header Area for Title */}
+            <div className="absolute top-0 left-0 right-0 p-6 z-10 bg-linear-to-b from-black/80 to-transparent flex justify-between items-center">
+              <h3 className="text-white font-bold text-xl md:text-2xl">
+                {title}
+              </h3>
               <button
                 onClick={onClose}
-                className="p-2 rounded-full hover:bg-white/10 text-gray-400 hover:text-white transition-colors"
+                className="p-2 rounded-full bg-black/50 text-white hover:bg-wine transition-colors"
               >
                 <X size={24} />
               </button>
             </div>
 
-            {/* Video Container (16:9 Aspect Ratio) */}
-            <div className="relative aspect-video w-full bg-black">
-              <iframe
-                src={videoUrl}
-                title={title}
-                className="absolute inset-0 w-full h-full"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            </div>
+            {/* Video Embed */}
+            <iframe
+              className="w-full h-full"
+              src={`${videoUrl}?autoplay=1`}
+              title={title}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
           </motion.div>
-        </motion.div>
+        </div>
       )}
     </AnimatePresence>
   );

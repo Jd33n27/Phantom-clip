@@ -29,11 +29,13 @@ export default function Faq() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section id="faq" className="w-full py-24 bg-wine/30 flex flex-col items-center px-6">
-      
+    <section
+      id="faq"
+      className="w-full py-24 bg-black flex flex-col items-center px-6"
+    >
       {/* Header Section */}
       <div className="-mb-10 text-center">
-        <h2 className="text-4xl md:text-5xl lg:text-6xl text-purple-400 font-serif italic tracking-tight">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl text-wine font-serif italic tracking-tight">
           <span className="text-white font-sans font-medium not-italic mr-2">
             Questions you
           </span>
@@ -60,11 +62,7 @@ export default function Faq() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               onClick={() => setOpenIndex(isOpen ? null : index)}
-              className="group relative overflow-hidden rounded-[14px] cursor-pointer transition-all duration-300"
-              style={{
-                background: "linear-gradient(180deg, rgba(153, 58, 241, 0.4) 0%, rgba(26, 8, 43, 0.4) 100%)",
-                border: "1px solid rgb(153, 58, 241)",
-              }}
+              className="group relative overflow-hidden rounded-[14px] cursor-pointer transition-all duration-300 bg-zinc-900/50 border border-white/10 hover:border-wine/50"
             >
               {/* Question Header */}
               <div className="flex items-center justify-between p-6">
@@ -73,16 +71,20 @@ export default function Faq() {
                 </h3>
 
                 {/* Icon Container */}
-                <div 
+                <div
                   className="shrink-0 w-10 h-10 rounded-[10px] flex items-center justify-center transition-colors"
-                  style={{ backgroundColor: "rgb(174, 87, 255)" }}
+                  style={{ backgroundColor: "#470101" }}
                 >
                   <div className="relative w-3.5 h-3.5">
-                     {/* Horizontal Line */}
+                    {/* Horizontal Line */}
                     <span className="absolute top-1/2 left-0 w-full h-0.5 bg-white -translate-y-1/2" />
                     {/* Vertical Line (Rotates) */}
                     <motion.span
-                      animate={{ rotate: isOpen ? 90 : 0, opacity: isOpen ? 0 : 1 }}
+                      animate={{
+                        rotate: isOpen ? 90 : 0,
+                        opacity: isOpen ? 0 : 1,
+                      }}
+                      transition={{ duration: 0.3, ease: "easeInOut" }}
                       className="absolute top-0 left-1/2 h-full w-0.5 bg-white -translate-x-1/2"
                     />
                   </div>
@@ -97,11 +99,14 @@ export default function Faq() {
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
-                    style={{ overflow: "hidden" }} 
+                    transition={{
+                      duration: 0.3,
+                      ease: [0.04, 0.62, 0.23, 0.98],
+                    }}
+                    style={{ overflow: "hidden" }}
                   >
                     <div className="px-6 pb-6 pt-0">
-                      <p className="text-gray-200 leading-relaxed text-base md:text-lg">
+                      <p className="text-gray-400 leading-relaxed text-base md:text-lg">
                         {faq.answer}
                       </p>
                     </div>

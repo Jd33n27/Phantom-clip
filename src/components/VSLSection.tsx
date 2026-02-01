@@ -13,7 +13,7 @@ export default function VSLSection() {
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Choose Your <span className="text-purple-500">Path</span>
+            Choose Your <span className="text-wine">Path</span>
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
             We have specialized strategies for both established brands and individual creators. Select your goal to see how we scale you.
@@ -29,14 +29,17 @@ export default function VSLSection() {
               onClick={() => setShowBrandOptions(true)}
               className="h-full"
             >
-              <SpotlightCard className="h-full p-8 md:p-12 cursor-pointer group flex flex-col items-center text-center transition-all duration-500 hover:border-purple-500/50">
+              <SpotlightCard 
+                className="h-full p-8 md:p-12 cursor-pointer group flex flex-col items-center text-center transition-all duration-500 hover:border-wine/50"
+                spotlightColor="rgba(71, 1, 1, 0.2)"
+              >
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-20 h-20 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-purple-500/20">
-                    <Building2 className="w-10 h-10 text-purple-400" />
+                  <div className="w-20 h-20 rounded-2xl bg-wine/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-wine/20">
+                    <Building2 className="w-10 h-10 text-wine" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">I'm a Brand</h3>
                   <p className="text-gray-400 mb-8">Looking to scale revenue through UGC, Paid Ads, and organic viral systems.</p>
-                  <span className="text-purple-400 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                  <span className="text-wine font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
                     View Strategies <PlayCircle size={20} />
                   </span>
                 </div>
@@ -49,14 +52,17 @@ export default function VSLSection() {
               onClick={() => setActiveModal("influencer")}
               className="h-full"
             >
-              <SpotlightCard className="h-full p-8 md:p-12 cursor-pointer group flex flex-col items-center text-center transition-all duration-500 hover:border-purple-500/50">
+              <SpotlightCard 
+                className="h-full p-8 md:p-12 cursor-pointer group flex flex-col items-center text-center transition-all duration-500 hover:border-wine/50"
+                spotlightColor="rgba(71, 1, 1, 0.2)"
+              >
                 <div className="relative z-10 flex flex-col items-center">
-                  <div className="w-20 h-20 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-purple-500/20">
-                    <User className="w-10 h-10 text-purple-400" />
+                  <div className="w-20 h-20 rounded-2xl bg-wine/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-wine/20">
+                    <User className="w-10 h-10 text-wine" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-4">I'm a Creator</h3>
                   <p className="text-gray-400 mb-8">Looking to multiply my reach, grow my audience, and monetize content.</p>
-                  <span className="text-purple-400 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                  <span className="text-wine font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
                     Watch VSL <PlayCircle size={20} />
                   </span>
                 </div>
@@ -82,9 +88,10 @@ export default function VSLSection() {
                 <motion.div whileHover={{ scale: 1.02 }}>
                     <SpotlightCard 
                         onClick={() => setActiveModal("brand_ugc")}
-                        className="p-8 cursor-pointer text-center h-full hover:bg-purple-900/10"
+                        className="p-8 cursor-pointer text-center h-full hover:bg-red-950/20"
+                        spotlightColor="rgba(71, 1, 1, 0.3)"
                     >
-                        <Users className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                        <Users className="w-12 h-12 text-wine mx-auto mb-4" />
                         <h3 className="text-xl font-bold text-white mb-2">Scale with UGC</h3>
                         <p className="text-sm text-gray-400">How we build a community-driven content engine for you.</p>
                     </SpotlightCard>
@@ -94,9 +101,10 @@ export default function VSLSection() {
                 <motion.div whileHover={{ scale: 1.02 }}>
                     <SpotlightCard 
                         onClick={() => setActiveModal("brand_viral")}
-                        className="p-8 cursor-pointer text-center h-full hover:bg-purple-900/10"
+                        className="p-8 cursor-pointer text-center h-full hover:bg-red-950/20"
+                        spotlightColor="rgba(71, 1, 1, 0.3)"
                     >
-                        <Zap className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                        <Zap className="w-12 h-12 text-wine mx-auto mb-4" />
                         <h3 className="text-xl font-bold text-white mb-2">Viral Infrastructure</h3>
                         <p className="text-sm text-gray-400">The narrative engineering system behind billion-view campaigns.</p>
                     </SpotlightCard>
@@ -107,8 +115,6 @@ export default function VSLSection() {
       </div>
 
       {/* --- MODALS --- */}
-      
-      {/* 1. Influencer VSL */}
       <VSLModal 
         isOpen={activeModal === "influencer"}
         onClose={() => setActiveModal(null)}
@@ -116,7 +122,6 @@ export default function VSLSection() {
         videoUrl="https://www.youtube.com/embed/PLACEHOLDER_ID_1" 
       />
 
-      {/* 2. Brand VSL (UGC) */}
       <VSLModal 
         isOpen={activeModal === "brand_ugc"}
         onClose={() => setActiveModal(null)}
@@ -124,14 +129,12 @@ export default function VSLSection() {
         videoUrl="https://www.youtube.com/embed/PLACEHOLDER_ID_2" 
       />
 
-      {/* 3. Brand VSL (Viral/Other) */}
       <VSLModal 
         isOpen={activeModal === "brand_viral"}
         onClose={() => setActiveModal(null)}
         title="Viral Engineering for Brands"
         videoUrl="https://www.youtube.com/embed/PLACEHOLDER_ID_3" 
       />
-
     </section>
   );
 }
