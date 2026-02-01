@@ -29,16 +29,12 @@ export default function Contact() {
     >
       <div className="absolute bottom-0 right-0 w-125 h-125 bg-red-950/10 blur-[120px] rounded-full pointer-events-none" />
       <div className="max-w-4xl mx-auto relative z-10">
-        <div className="text-center mb-12">
+        <div className="text-center -mb-17">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Build Your <span className="text-[#470101]">Army?</span>
+            Ready to Build Your <span className="text-wine">Army?</span>
           </h2>
-          <p className="text-gray-400 text-lg">
-            Apply below to see if your brand or channel qualifies for our
-            scaling infrastructure.
-          </p>
         </div>
-        <SectionSeparator width="max-w-xs" className="mb-12" />
+        <SectionSeparator width="max-w-xs" className="mb-7" />
         <div className="bg-zinc-900/50 backdrop-blur-sm border border-white/10 rounded-3xl p-8 md:p-12 shadow-[0_0_60px_rgba(71,1,1,0.15)]">
           {isSubmitted ? (
             <motion.div
@@ -67,7 +63,7 @@ export default function Contact() {
                     type="text"
                     required
                     placeholder="John Doe"
-                    className="w-full px-4 py-4 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#470101] focus:ring-1 focus:ring-[#470101] transition-all placeholder:text-gray-600"
+                    className="w-full px-4 py-4 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-wine focus:ring-1 focus:ring-wine transition-all placeholder:text-gray-600"
                     value={formState.name}
                     onChange={(e) =>
                       setFormState({ ...formState, name: e.target.value })
@@ -82,7 +78,7 @@ export default function Contact() {
                     type="email"
                     required
                     placeholder="john@company.com"
-                    className="w-full px-4 py-4 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#470101] focus:ring-1 focus:ring-[#470101] transition-all placeholder:text-gray-600"
+                    className="w-full px-4 py-4 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-wine focus:ring-1 focus:ring-wine transition-all placeholder:text-gray-600"
                     value={formState.email}
                     onChange={(e) =>
                       setFormState({ ...formState, email: e.target.value })
@@ -100,7 +96,7 @@ export default function Contact() {
                     onClick={() =>
                       setFormState({ ...formState, type: "brand" })
                     }
-                    className={`p-4 rounded-xl border text-sm font-semibold transition-all ${formState.type === "brand" ? "bg-[#470101] text-white border-[#470101] shadow-[0_0_20px_rgba(71,1,1,0.4)]" : "bg-black/50 text-gray-400 border-white/10 hover:border-[#470101]/50"}`}
+                    className={`p-4 rounded-xl border text-sm font-semibold transition-all ${formState.type === "brand" ? "bg-wine text-white border-wine shadow-[0_0_20px_rgba(71,1,1,0.4)]" : "bg-black/50 text-gray-400 border-white/10 hover:border-wine/50"}`}
                   >
                     Brand / Company
                   </button>
@@ -109,7 +105,7 @@ export default function Contact() {
                     onClick={() =>
                       setFormState({ ...formState, type: "creator" })
                     }
-                    className={`p-4 rounded-xl border text-sm font-semibold transition-all ${formState.type === "creator" ? "bg-[#470101] text-white border-[#470101] shadow-[0_0_20px_rgba(71,1,1,0.4)]" : "bg-black/50 text-gray-400 border-white/10 hover:border-[#470101]/50"}`}
+                    className={`p-4 rounded-xl border text-sm font-semibold transition-all ${formState.type === "creator" ? "bg-wine text-white border-wine shadow-[0_0_20px_rgba(71,1,1,0.4)]" : "bg-black/50 text-gray-400 border-white/10 hover:border-wine/50"}`}
                   >
                     Content Creator
                   </button>
@@ -123,7 +119,7 @@ export default function Contact() {
                   required
                   rows={4}
                   placeholder="We are looking to scale our views..."
-                  className="w-full px-4 py-4 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-[#470101] focus:ring-1 focus:ring-[#470101] transition-all placeholder:text-gray-600 resize-none"
+                  className="w-full px-4 py-4 rounded-xl bg-black/50 border border-white/10 text-white focus:outline-none focus:border-wine focus:ring-1 focus:ring-wine transition-all placeholder:text-gray-600 resize-none"
                   value={formState.message}
                   onChange={(e) =>
                     setFormState({ ...formState, message: e.target.value })
@@ -133,7 +129,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-4 rounded-xl bg-linear-to-r from-red-950 to-[#470101] hover:from-red-900 hover:to-[#6b0202] text-white font-bold text-lg shadow-[0_0_30px_rgba(71,1,1,0.4)] hover:shadow-[0_0_40px_rgba(71,1,1,0.6)] transition-all flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
+                className="w-full py-4 rounded-xl bg-linear-to-r from-red-950 to-wine hover:from-red-900 hover:to-wine-light text-white font-bold text-lg shadow-[0_0_30px_rgba(71,1,1,0.4)] hover:shadow-[0_0_40px_rgba(71,1,1,0.6)] transition-all flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? (
                   <span className="animate-pulse">Processing...</span>

@@ -4,27 +4,27 @@ const clients = [
   {
     name: "Maurits",
     role: "CREATOR",
-    img: "/lovable-uploads/maurits.png",
+    img: "/maurits.jpg",
   },
   {
     name: "Smith Rees",
     role: "CREATOR",
-    img: "/lovable-uploads/smithrees.png",
+    img: "/smithrees.jpg",
   },
   {
     name: "Cryptonary",
     role: "COMPANY",
-    img: "/lovable-uploads/cryptonary.png",
+    img: "/cryptonary.jpg",
   },
   {
     name: "Jonathan Low",
     role: "INFLUENCER",
-    img: "/lovable-uploads/jonathanlow.png",
+    img: "/jonathanlow.jpg",
   },
   {
     name: "Crown88 Global",
     role: "COMPANY",
-    img: "/lovable-uploads/crown88.png",
+    img: "/crown88.jpg",
   },
 ];
 
@@ -32,7 +32,7 @@ export default function LogoTicker() {
   return (
     <div className="w-full relative z-20 mt-1 mb-12">
       {/* Separator Line updated to Wine theme */}
-      <div className="w-full h-px bg-linear-to-r from-transparent via-[#470101]/30 to-transparent mb-12" />
+      <div className="w-full h-px bg-linear-to-r from-transparent via-wine/50 to-transparent mb-12" />
 
       {/* Ticker Container with Gradient Mask */}
       <div
@@ -48,7 +48,7 @@ export default function LogoTicker() {
           className="flex items-center w-max"
           animate={{ x: "-50%" }}
           transition={{
-            duration: 25, // Adjusted for a smoother experience with 5 items
+            duration: 190, // Adjusted for a smoother experience with 5 items
             ease: "linear",
             repeat: Infinity,
           }}
@@ -60,7 +60,7 @@ export default function LogoTicker() {
               className="flex flex-col items-center space-y-3 shrink-0 mx-8 group cursor-default"
             >
               {/* Avatar Image updated with Wine border */}
-              <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-[3px] border-[#470101]/20 group-hover:border-[#470101] transition-colors duration-300 bg-black/50">
+              <div className="relative w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden border-[3px] border-wine/80 group-hover:border-wine transition-colors duration-300 bg-black/50">
                 <img
                   src={client.img}
                   alt={client.name}

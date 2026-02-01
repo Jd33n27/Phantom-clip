@@ -37,9 +37,9 @@ export default function Faq() {
       <div className="-mb-10 text-center">
         <h2 className="text-4xl md:text-5xl lg:text-6xl text-wine font-serif italic tracking-tight">
           <span className="text-white font-sans font-medium not-italic mr-2">
-            Questions you
+            Your Questions,
           </span>
-          might be asking
+          Answered
         </h2>
       </div>
 

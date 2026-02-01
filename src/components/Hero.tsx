@@ -10,7 +10,7 @@ export default function Hero() {
       </div>
 
       <div
-        className="absolute inset-0 z-[1] opacity-[0.15] pointer-events-none"
+        className="absolute inset-0 z-1 opacity-[0.15] pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
                             linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
@@ -25,12 +25,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-[1.1] -mb-15 bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-[1.1] -mb-15 bg-linear-to-b from-white via-white to-white/60 bg-clip-text text-transparent"
         >
-          <span className="font-serif italic font-normal text-red-100 block sm:inline mr-2">
-            Attention is the real currency.
+          <span className="font-serif italic font-normal text-white block sm:inline mr-2">
+            Attention is the real currency. We help you earn more of it.
           </span>
-          We help you earn more of it.
         </motion.h1>
 
         <SectionSeparator />
@@ -43,8 +42,10 @@ export default function Hero() {
         >
           <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
             <span className="text-white font-semibold">
-              A system that turns long-form content into visibility, followers,
-              and consistent demand—across every platform worth attention.
+              A distribution system that turns long-form content into
+              visibility, authority, cult-level loyalty, and consistent lead
+              flow - across every platform that matters. Powered by our curated
+              network of clippers and UGC creators built for brands.
             </span>
           </p>
         </motion.div>
@@ -57,10 +58,7 @@ export default function Hero() {
         >
           <a
             href="#"
-            className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_1px_40px_rgba(71,1,1,0.5)]"
-            style={{
-              background: "linear-gradient(90deg, #470101 0%, #2d0101 100%)",
-            }}
+            className="group bg-wine relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_1px_40px_rgba(71,1,1,0.5)]"
           >
             <span className="relative z-10 uppercase tracking-wide">
               Book "The" Call

@@ -6,6 +6,7 @@ import Footer from "./components/Footer";
 import LogoTicker from "./components/Ticker";
 import VSLSection from "./components/VSLSection";
 import Contact from "./components/Contact";
+import TrustBadge from "./components/TrustBadge";
 
 function App() {
   return (
@@ -13,16 +14,17 @@ function App() {
       <div className="bg-noise" />
       <Navbar />
 
-
       <div id="home">
         <Hero />
       </div>
 
-      <LogoTicker />
-
       <div id="about">
         <VSLSection />
       </div>
+
+      <TrustBadge />
+
+      <LogoTicker />
 
       <div id="process">
         <Process />
