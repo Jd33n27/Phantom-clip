@@ -10,6 +10,17 @@ export default function Hero() {
         <BackgroundVideo />
       </div>
 
+      {/* Subtle Tech Grid Overlay */}
+      <div 
+        className="absolute inset-0 z-[1] opacity-[0.15] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
+                            linear-gradient(to bottom, #ffffff 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 70%)'
+        }}
+      />
+
       {/* Main Content Container */}
       <div className="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center text-center mt-20">
       
@@ -17,12 +28,14 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold text-white tracking-tighter leading-[1.1] -mb-15"
+          className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-[1.1] -mb-15 bg-gradient-to-b from-white via-white to-white/60 bg-clip-text text-transparent"
         >
-          <span className="font-serif italic font-normal text-purple-200">
-            Attention is the real currency. We help you earn more of it.
+          <span className="font-serif italic font-normal text-purple-200 block sm:inline mr-2">
+             Attention is the real currency.
           </span>
+          We help you earn more of it.
         </motion.h1>
+        
         <SectionSeparator />
 
         {/* Subheadline */}

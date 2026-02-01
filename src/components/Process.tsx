@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Rocket, TrendingUp, Users } from "lucide-react";
 import SectionSeparator from "./SectionSeparator";
+import SpotlightCard from "./SpotLightCard";
 
 const steps = [
   {
@@ -67,70 +68,70 @@ export default function Process() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: index * 0.2 }}
             viewport={{ once: true }}
-            className="relative group rounded-3xl border border-white/10 bg-zinc-900/50 overflow-hidden flex flex-col"
+            className="h-full"
           >
-            {/* Top Image/Icon Area */}
-            <div
-              className={`h-48 w-full bg-linear-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}
-            >
-              {/* Central Icon Circle */}
-              <div className="relative w-20 h-20 rounded-full border border-purple-500/30 flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
-                {step.icon}
-                {/* Connecting Lines (Decorative) */}
-                <div className="absolute top-1/2 -left-full w-full h-px bg-linear-to-r from-transparent to-purple-500/20" />
-                <div className="absolute top-1/2 -right-full w-full h-px bg-linear-to-l from-transparent to-purple-500/20" />
-              </div>
+            {/* Using SpotlightCard for the container styles */}
+            <SpotlightCard className="flex flex-col h-full group">
+              
+              {/* Top Image/Icon Area */}
+              <div
+                className={`h-48 w-full bg-linear-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}
+              >
+                {/* Central Icon Circle */}
+                <div className="relative w-20 h-20 rounded-full border border-purple-500/30 flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
+                  {step.icon}
+                  {/* Connecting Lines (Decorative) */}
+                  <div className="absolute top-1/2 -left-full w-full h-px bg-linear-to-r from-transparent to-purple-500/20" />
+                  <div className="absolute top-1/2 -right-full w-full h-px bg-linear-to-l from-transparent to-purple-500/20" />
+                </div>
 
-              {/* Stage Tag */}
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full border border-white/5 bg-black/40 text-xs font-semibold text-purple-300">
-                {step.stage}
-              </div>
-            </div>
-
-            {/* Content Body */}
-            <div className="p-8 flex flex-col grow">
-              {/* Title Section */}
-              <div className="mb-6">
-                <h4 className="text-2xl font-bold text-white -mb-17">
-                  {step.title}
-                </h4>
-                {/* <div className="h-0.5 w-12 bg-gradient-to-r from-purple-500 to-transparent" /> */}
-                <SectionSeparator className="max-w-25" />
-              </div>
-
-              {/* Description */}
-              <p className="text-gray-400 leading-relaxed text-sm mb-8 grow">
-                {step.description}
-              </p>
-
-              {/* Footer: Tags & CTA */}
-              <div className="space-y-6 mt-auto">
-                {/* CTA Button for Last Step */}
-                {step.cta && (
-                  <a
-                    href="#"
-                    className="block w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-center transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(147,51,234,0.5)] mb-6"
-                  >
-                    Book an Appointment
-                  </a>
-                )}
-
-                {/* Tags Row */}
-                <div className="flex flex-wrap gap-2">
-                  {step.tags.map((tag, i) => (
-                    <div
-                      key={i}
-                      className="px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 text-xs text-gray-300 font-medium"
-                    >
-                      {tag}
-                    </div>
-                  ))}
+                {/* Stage Tag */}
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full border border-white/5 bg-black/40 text-xs font-semibold text-purple-300">
+                  {step.stage}
                 </div>
               </div>
-            </div>
 
-            {/* Hover Glow Effect */}
-            <div className="absolute inset-0 border-2 border-purple-500/0 group-hover:border-purple-500/30 rounded-3xl transition-colors duration-500 pointer-events-none" />
+              {/* Content Body */}
+              <div className="p-8 flex flex-col grow">
+                {/* Title Section */}
+                <div className="mb-6">
+                  <h4 className="text-2xl font-bold text-white -mb-17">
+                    {step.title}
+                  </h4>
+                  <SectionSeparator className="max-w-25" />
+                </div>
+
+                {/* Description */}
+                <p className="text-gray-400 leading-relaxed text-sm mb-8 grow">
+                  {step.description}
+                </p>
+
+                {/* Footer: Tags & CTA */}
+                <div className="space-y-6 mt-auto">
+                  {/* CTA Button for Last Step */}
+                  {step.cta && (
+                    <a
+                      href="#"
+                      className="block w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-center transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(147,51,234,0.5)] mb-6"
+                    >
+                      Book an Appointment
+                    </a>
+                  )}
+
+                  {/* Tags Row */}
+                  <div className="flex flex-wrap gap-2">
+                    {step.tags.map((tag, i) => (
+                      <div
+                        key={i}
+                        className="px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 text-xs text-gray-300 font-medium"
+                      >
+                        {tag}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </SpotlightCard>
           </motion.div>
         ))}
       </div>

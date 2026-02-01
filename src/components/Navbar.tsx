@@ -8,12 +8,11 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("Home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  // Scroll Handling: Hide/Show on scroll & Active State Detection
+  // Scroll Handling
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
 
-      // Hide/Show Logic
       if (currentScrollY > lastScrollY && currentScrollY > 50) {
         setIsVisible(false);
       } else {
@@ -21,8 +20,8 @@ export default function Navbar() {
       }
       setLastScrollY(currentScrollY);
 
-      // Active Section Logic (Simple scroll detection)
       const sections = ["Home", "About", "Process", "Faq"];
+
       for (const section of sections) {
         const element = document.getElementById(section.toLowerCase());
         if (element) {
@@ -33,7 +32,6 @@ export default function Navbar() {
           }
         }
       }
-      // Special case for Home (top of page)
       if (currentScrollY < 100) setActiveSection("Home");
     };
 
@@ -42,7 +40,7 @@ export default function Navbar() {
   }, [lastScrollY]);
 
   const navLinks = [
-    { name: "Home", href: "#" },
+    { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
     { name: "Process", href: "#process" },
     { name: "FAQ", href: "#faq" },
@@ -56,35 +54,33 @@ export default function Navbar() {
         transition={{ duration: 0.3, ease: "easeInOut" }}
         className="fixed top-0 left-0 right-0 z-50 w-full"
       >
-        {/* Glassmorphism Container mimicking the Framer snippet */}
+        {/* GLASS CONTAINER */}
         <div
-          className="w-full backdrop-blur-xl border-b border-white/10"
+          className="w-full backdrop-blur-xl border-b border-white/5"
           style={{
-            background:
-              "linear-gradient(180deg, rgba(0, 0, 0, 0.6) 0%, rgba(20, 0, 30, 0.8) 100%)",
+            background: "rgba(0, 0, 0, 0.4)",
+            boxShadow: "inset 0 1px 0 0 rgba(255, 255, 255, 0.05)",
           }}
         >
           <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            {/* Left Side: Logo & Separator */}
+            {/* Left Side */}
             <div className="flex items-center gap-6">
-            <div className="flex flex-col items-center">
-              <a
-                href="#"
-                className="relative group block overflow-hidden rounded-full border border-white/10 shadow-[0_0_15px_rgba(147,51,234,0.3)]"
-              >
-                <img
-                  src="/logo.png"
-                  alt="Phantom Clips"
-                  className="size-15 object-cover"
-                />
-                
-              </a>
-              <h2 className="relative z-10 text-sm font-bold text-purple-400 tracking-wider">
+              <div className="flex flex-col items-center">
+                <a
+                  href="#home"
+                  className="relative group block overflow-hidden rounded-full border border-white/10 shadow-[0_0_15px_rgba(147,51,234,0.3)]"
+                >
+                  <img
+                    src="/logo.png"
+                    alt="Phantom Clips"
+                    className="size-15 object-cover"
+                  />
+                </a>
+                <h2 className="relative z-10 text-sm font-bold text-purple-400 tracking-wider">
                   Phantom Clip
                 </h2>
-                </div>
+              </div>
 
-              {/* Vertical Separator from snippet */}
               <div className="hidden md:block h-8 w-px bg-linear-to-b from-transparent via-white/20 to-transparent" />
 
               {/* Desktop Nav Links */}
@@ -98,14 +94,12 @@ export default function Navbar() {
                       onClick={() => setActiveSection(link.name)}
                       className="relative px-4 py-2 text-sm font-medium transition-all duration-300"
                     >
-                      {/* Active State Text Styling */}
                       <span
                         className={`${isActive ? "text-white" : "text-white/60 hover:text-white"}`}
                       >
                         {link.name}
                       </span>
 
-                      {/* Active Underline Glow */}
                       {isActive && (
                         <motion.div
                           layoutId="active-nav"
@@ -118,14 +112,13 @@ export default function Navbar() {
               </div>
             </div>
 
-            {/* Right Side: CTA Button */}
+            {/* Right Side */}
             <div className="hidden md:flex items-center">
               <a
                 href="#contact"
                 className="group relative px-6 py-2.5 rounded-lg bg-purple-600 text-white font-semibold text-sm transition-all duration-300 shadow-[0_8px_40px_rgba(147,51,234,0.4)] hover:shadow-[0_8px_50px_rgba(147,51,234,0.6)] hover:bg-purple-500 active:scale-95 border border-white/10"
               >
                 <span className="relative z-10">Get In Touch</span>
-                {/* Inner Glow */}
                 <div className="absolute inset-0 rounded-lg bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </a>
             </div>

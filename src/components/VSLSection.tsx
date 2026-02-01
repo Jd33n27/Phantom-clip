@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Building2, User, PlayCircle, Users, Zap } from "lucide-react";
 import VSLModal from "./VSLModal";
+import SpotlightCard from "./SpotLightCard";
 
 export default function VSLSection() {
   const [activeModal, setActiveModal] = useState<"influencer" | "brand_ugc" | "brand_viral" | null>(null);
@@ -26,40 +27,40 @@ export default function VSLSection() {
             <motion.div
               whileHover={{ scale: 1.02 }}
               onClick={() => setShowBrandOptions(true)}
-              className="group relative cursor-pointer rounded-3xl border border-white/10 bg-zinc-900/50 p-8 md:p-12 overflow-hidden hover:border-purple-500/50 transition-all duration-500"
+              className="h-full"
             >
-              <div className="absolute inset-0 bg-linear-to-br from-purple-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-20 h-20 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-purple-500/20">
-                  <Building2 className="w-10 h-10 text-purple-400" />
+              <SpotlightCard className="h-full p-8 md:p-12 cursor-pointer group flex flex-col items-center text-center transition-all duration-500 hover:border-purple-500/50">
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-20 h-20 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-purple-500/20">
+                    <Building2 className="w-10 h-10 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">I'm a Brand</h3>
+                  <p className="text-gray-400 mb-8">Looking to scale revenue through UGC, Paid Ads, and organic viral systems.</p>
+                  <span className="text-purple-400 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                    View Strategies <PlayCircle size={20} />
+                  </span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">I'm a Brand</h3>
-                <p className="text-gray-400 mb-8">Looking to scale revenue through UGC, Paid Ads, and organic viral systems.</p>
-                <span className="text-purple-400 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
-                  View Strategies <PlayCircle size={20} />
-                </span>
-              </div>
+              </SpotlightCard>
             </motion.div>
 
             {/* Option 2: Scale Personal Brand (Influencer) */}
             <motion.div
               whileHover={{ scale: 1.02 }}
               onClick={() => setActiveModal("influencer")}
-              className="group relative cursor-pointer rounded-3xl border border-white/10 bg-zinc-900/50 p-8 md:p-12 overflow-hidden hover:border-purple-500/50 transition-all duration-500"
+              className="h-full"
             >
-              <div className="absolute inset-0 bg-linear-to-bl from-purple-900/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              
-              <div className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-20 h-20 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-purple-500/20">
-                  <User className="w-10 h-10 text-purple-400" />
+              <SpotlightCard className="h-full p-8 md:p-12 cursor-pointer group flex flex-col items-center text-center transition-all duration-500 hover:border-purple-500/50">
+                <div className="relative z-10 flex flex-col items-center">
+                  <div className="w-20 h-20 rounded-2xl bg-purple-500/10 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500 border border-purple-500/20">
+                    <User className="w-10 h-10 text-purple-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-4">I'm a Creator</h3>
+                  <p className="text-gray-400 mb-8">Looking to multiply my reach, grow my audience, and monetize content.</p>
+                  <span className="text-purple-400 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
+                    Watch VSL <PlayCircle size={20} />
+                  </span>
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-4">I'm a Creator</h3>
-                <p className="text-gray-400 mb-8">Looking to multiply my reach, grow my audience, and monetize content.</p>
-                <span className="text-purple-400 font-semibold flex items-center gap-2 group-hover:gap-4 transition-all">
-                  Watch VSL <PlayCircle size={20} />
-                </span>
-              </div>
+              </SpotlightCard>
             </motion.div>
           </div>
         ) : (
@@ -78,24 +79,28 @@ export default function VSLSection() {
              
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {/* Brand VSL 1: UGC & Community */}
-                <div 
-                    onClick={() => setActiveModal("brand_ugc")}
-                    className="cursor-pointer rounded-2xl border border-purple-500/30 bg-purple-900/10 p-8 hover:bg-purple-900/20 transition-all text-center"
-                >
-                    <Users className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-white mb-2">Scale with UGC</h3>
-                    <p className="text-sm text-gray-400">How we build a community-driven content engine for you.</p>
-                </div>
+                <motion.div whileHover={{ scale: 1.02 }}>
+                    <SpotlightCard 
+                        onClick={() => setActiveModal("brand_ugc")}
+                        className="p-8 cursor-pointer text-center h-full hover:bg-purple-900/10"
+                    >
+                        <Users className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                        <h3 className="text-xl font-bold text-white mb-2">Scale with UGC</h3>
+                        <p className="text-sm text-gray-400">How we build a community-driven content engine for you.</p>
+                    </SpotlightCard>
+                </motion.div>
 
                 {/* Brand VSL 2: Viral/Other */}
-                <div 
-                    onClick={() => setActiveModal("brand_viral")}
-                    className="cursor-pointer rounded-2xl border border-purple-500/30 bg-purple-900/10 p-8 hover:bg-purple-900/20 transition-all text-center"
-                >
-                    <Zap className="w-12 h-12 text-purple-400 mx-auto mb-4" />
-                    <h3 className="text-xl font-bold text-white mb-2">Viral Infrastructure</h3>
-                    <p className="text-sm text-gray-400">The narrative engineering system behind billion-view campaigns.</p>
-                </div>
+                <motion.div whileHover={{ scale: 1.02 }}>
+                    <SpotlightCard 
+                        onClick={() => setActiveModal("brand_viral")}
+                        className="p-8 cursor-pointer text-center h-full hover:bg-purple-900/10"
+                    >
+                        <Zap className="w-12 h-12 text-purple-400 mx-auto mb-4" />
+                        <h3 className="text-xl font-bold text-white mb-2">Viral Infrastructure</h3>
+                        <p className="text-sm text-gray-400">The narrative engineering system behind billion-view campaigns.</p>
+                    </SpotlightCard>
+                </motion.div>
              </div>
           </motion.div>
         )}
