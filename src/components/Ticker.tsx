@@ -3,27 +3,27 @@ import { motion } from "framer-motion";
 const clients = [
   {
     name: "Maurits",
-    role: "CREATOR",
+    // role: "CREATOR",
     img: "/maurits.jpg",
   },
   {
     name: "Smith Rees",
-    role: "CREATOR",
+    // role: "CREATOR",
     img: "/smithrees.jpg",
   },
   {
     name: "Cryptonary",
-    role: "COMPANY",
+    // role: "COMPANY",
     img: "/cryptonary.jpg",
   },
   {
     name: "Jonathan Low",
-    role: "INFLUENCER",
+    // role: "INFLUENCER",
     img: "/jonathanlow.jpg",
   },
   {
     name: "Crown88 Global",
-    role: "COMPANY",
+    // role: "COMPANY",
     img: "/crown88.jpg",
   },
 ];
@@ -73,9 +73,9 @@ export default function LogoTicker() {
                 <p className="text-sm font-bold text-white whitespace-nowrap tracking-wide">
                   {client.name}
                 </p>
-                <p className="text-[10px] md:text-xs text-gray-500 font-semibold tracking-wider whitespace-nowrap uppercase mt-0.5">
+                {/* <p className="text-[10px] md:text-xs text-gray-500 font-semibold tracking-wider whitespace-nowrap uppercase mt-0.5">
                   {client.role}
-                </p>
+                </p> */}
               </div>
             </div>
           ))}
