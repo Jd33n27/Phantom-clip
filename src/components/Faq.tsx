@@ -2,7 +2,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SectionSeparator from "./SectionSeparator";
 
-// Keeping your original content
 const faqs = [
   {
     question: "What do I need to get started?",
@@ -27,12 +26,12 @@ const faqs = [
 ];
 
 export default function Faq() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
     <section id="faq" className="w-full py-24 bg-purple-900/30 flex flex-col items-center px-6">
       
-      {/* 1. Header Section matching the snippet */}
+      {/* Header Section */}
       <div className="-mb-10 text-center">
         <h2 className="text-4xl md:text-5xl lg:text-6xl text-purple-400 font-serif italic tracking-tight">
           <span className="text-white font-sans font-medium not-italic mr-2">
@@ -42,18 +41,19 @@ export default function Faq() {
         </h2>
       </div>
 
-      {/* 2. Separator */}
+      {/* Separator */}
       <div className="mb-16 w-full flex justify-center">
         <SectionSeparator width="max-w-xs" />
       </div>
 
-      {/* 3. Accordion Container */}
+      {/* Accordion Container */}
       <div className="w-full max-w-3xl flex flex-col gap-4">
         {faqs.map((faq, index) => {
           const isOpen = openIndex === index;
 
           return (
             <motion.div
+              layout="position"
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -62,7 +62,6 @@ export default function Faq() {
               onClick={() => setOpenIndex(isOpen ? null : index)}
               className="group relative overflow-hidden rounded-[14px] cursor-pointer transition-all duration-300"
               style={{
-                // Exact gradient and border from the snippet
                 background: "linear-gradient(180deg, rgba(153, 58, 241, 0.4) 0%, rgba(26, 8, 43, 0.4) 100%)",
                 border: "1px solid rgb(153, 58, 241)",
               }}
@@ -73,7 +72,7 @@ export default function Faq() {
                   {faq.question}
                 </h3>
 
-                {/* Icon Container - Purple Square */}
+                {/* Icon Container */}
                 <div 
                   className="shrink-0 w-10 h-10 rounded-[10px] flex items-center justify-center transition-colors"
                   style={{ backgroundColor: "rgb(174, 87, 255)" }}
@@ -91,13 +90,15 @@ export default function Faq() {
               </div>
 
               {/* Expandable Answer */}
-              <AnimatePresence>
+              <AnimatePresence initial={false}>
                 {isOpen && (
                   <motion.div
+                    key="content"
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                    style={{ overflow: "hidden" }} 
                   >
                     <div className="px-6 pb-6 pt-0">
                       <p className="text-gray-200 leading-relaxed text-base md:text-lg">

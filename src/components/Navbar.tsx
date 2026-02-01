@@ -22,7 +22,7 @@ export default function Navbar() {
       setLastScrollY(currentScrollY);
 
       // Active Section Logic (Simple scroll detection)
-      const sections = ["Hero", "About", "Process", "Faq"];
+      const sections = ["Home", "About", "Process", "Faq"];
       for (const section of sections) {
         const element = document.getElementById(section.toLowerCase());
         if (element) {

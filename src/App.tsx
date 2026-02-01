@@ -4,8 +4,8 @@ import Process from "./components/Process";
 import FAQ from "./components/Faq";
 import Footer from "./components/Footer";
 import LogoTicker from "./components/Ticker";
-import VSLSection from "./components/VSLSection"; 
-import Contact from "./components/Contact"; 
+import VSLSection from "./components/VSLSection";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -16,23 +16,22 @@ function App() {
         <Hero />
       </div>
 
-      {/* Insert VSL Section here as the primary "Hook" after Hero */}
-      
-
       <LogoTicker />
+
+      <div id="about">
+        <VSLSection />
+      </div>
 
       <div id="process">
         <Process />
       </div>
-
-      <VSLSection />
 
       <div id="faq">
         <FAQ />
       </div>
 
       <div id="contact">
-      <Contact />
+        <Contact />
       </div>
 
       <Footer />

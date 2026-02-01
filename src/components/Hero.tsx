@@ -48,7 +48,7 @@ export default function Hero() {
           className="flex flex-col items-center gap-6"
         >
           <a
-            href="https://calendly.com/roimediainc/buildyourclippingarmy" // Keeping your original link
+            href="#" 
             className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_1px_40px_rgba(176,92,255,0.4)]"
             style={{
               background:

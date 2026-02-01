@@ -17,8 +17,22 @@ export default function BackgroundVideo() {
           muted
           autoPlay
           playsInline
-          className="w-full h-full object-cover"
+          controls={false}
+          className="w-full h-full object-cover pointer-events-none"
+          style={{
+            // @ts-ignore
+            "&::-webkit-media-controls": {
+               display: "none !important"
+            },
+            "&::-webkit-media-controls-start-playback-button": {
+              display: "none !important",
+              appearance: "none"
+            }
+          }}
         />
+        
+        {/* Extra Overlay to ensure video is never reachable by mouse/touch */}
+        <div className="absolute inset-0 z-10 bg-transparent" />
       </motion.div>
     </section>
   );

@@ -108,7 +108,7 @@ export default function Process() {
                 {/* CTA Button for Last Step */}
                 {step.cta && (
                   <a
-                    href="https://calendly.com/roimediainc/buildyourclippingarmy"
+                    href="#"
                     className="block w-full py-3 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-bold text-center transition-all shadow-[0_0_20px_rgba(147,51,234,0.3)] hover:shadow-[0_0_25px_rgba(147,51,234,0.5)] mb-6"
                   >
                     Book an Appointment
