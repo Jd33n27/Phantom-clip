@@ -15,7 +15,7 @@ export default function Footer() {
 
       {/* Text */}
       <h2 className="relative z-10 text-3xl md:text-4xl font-bold text-white tracking-wider">
-        Phantom Clips
+        Phantom Clipss
       </h2>
     </footer>
   );
