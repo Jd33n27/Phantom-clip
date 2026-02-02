@@ -117,7 +117,7 @@ export default function Navbar() {
             {/* Desktop Only Right Side */}
             <div className="hidden md:flex items-center">
               <a
-                href="#contact"
+                href="https://calendly.com/anuragbiz69"
                 className="group relative px-6 py-2.5 rounded-lg bg-wine text-white font-semibold text-sm transition-all duration-300 shadow-[0_8px_40px_rgba(71,1,1,0.4)] hover:shadow-[0_8px_50px_rgba(71,1,1,0.6)] hover:bg-wine-light active:scale-95 border border-white/10"
               >
                 <span className="relative z-10">Get In Touch</span>

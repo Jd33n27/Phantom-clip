@@ -57,7 +57,7 @@ export default function Hero() {
           className="flex flex-col items-center gap-6"
         >
           <a
-            href="#"
+            href="https://calendly.com/anuragbiz69"
             className="group bg-wine relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-[0_1px_40px_rgba(71,1,1,0.5)]"
           >
             <span className="relative z-10 uppercase tracking-wide">
