@@ -1,3 +1,4 @@
+"use client";
 import { useRef, useState, type MouseEvent } from "react";
 
 interface SpotlightCardProps extends React.HTMLAttributes<HTMLDivElement> {

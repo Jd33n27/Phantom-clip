@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import BackgroundVideo from "./BackgroundVideo";
 import SectionSeparator from "./SectionSeparator";

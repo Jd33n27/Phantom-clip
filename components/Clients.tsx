@@ -1,3 +1,4 @@
+"use client";
 import { motion } from 'framer-motion';
 
 // Placeholder data - TODO Replace 'logo' strings with your actual image imports or URLs
