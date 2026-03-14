@@ -17,7 +17,6 @@ export default function RootLayout({
     <html lang="en" className="scroll-smooth">
       <body className="text-white overflow-x-hidden">
         <BackgroundImage />
-        {/*<div className="bg-noise" />*/}
         <Navbar />
         <main>{children}</main>
         <Footer />
