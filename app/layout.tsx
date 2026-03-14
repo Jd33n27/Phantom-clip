@@ -1,6 +1,7 @@
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BackgroundImage from "@/components/BackgroundImage";
 
 export const metadata = {
   title: "Phantom Clips",
@@ -14,8 +15,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="bg-black text-white antialiased overflow-x-hidden">
-        <div className="bg-noise" /> {/* Persistent background effect */}
+      <body className="text-white overflow-x-hidden">
+        <BackgroundImage />
+        {/*<div className="bg-noise" />*/}
         <Navbar />
         <main>{children}</main>
         <Footer />

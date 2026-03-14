@@ -16,12 +16,12 @@
   html {
     font-family: "DM Sans", sans-serif;
     scroll-behavior: smooth;
-    background-color: black;
+    /*background-color: black;*/
   }
 
-  body {
+  /*body {
     @apply bg-black text-white antialiased overflow-x-hidden;
-  }
+  }*/
 
   ::selection {
     background-color: rgba(71, 1, 1, 0.3); /* Wine selection */

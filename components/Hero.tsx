@@ -1,16 +1,16 @@
 "use client";
 import { motion } from "framer-motion";
-import BackgroundVideo from "./BackgroundVideo";
+// import BackgroundVideo from "./BackgroundVideo";
 import SectionSeparator from "./SectionSeparator";
 
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex flex-col items-center bg-transparent justify-center overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      {/*<div className="absolute inset-0 z-0">
         <BackgroundVideo />
-      </div>
+      </div>*/}
 
-      <div
+      {/*<div
         className="absolute inset-0 z-1 opacity-[0.15] pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(to right, #ffffff 1px, transparent 1px),
@@ -19,7 +19,7 @@ export default function Hero() {
           maskImage:
             "radial-gradient(ellipse at center, black 40%, transparent 70%)",
         }}
-      />
+      />*/}
 
       <div className="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center text-center mt-20">
         <motion.h1
