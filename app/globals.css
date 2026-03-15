@@ -1,57 +1,135 @@
+/* app/globals.css */
 @import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --color-wine: #ce0303;
-  --color-wine-light: #6b0202;
+    --color-wine: #ce0303;
+    --color-wine-light: #6b0202;
 }
 
 @layer base {
-  :root {
-    --brand-wine: #470101;
-    --brand-wine-dark: #2d0101;
-    --brand-black: #000000;
-  }
+    :root {
+        --brand-wine: #470101;
+        --brand-wine-dark: #2d0101;
+        --brand-black: #000000;
+    }
 
-  html {
-    font-family: "DM Sans", sans-serif;
-    scroll-behavior: smooth;
-    /*background-color: black;*/
-  }
+    html {
+        font-family: "DM Sans", sans-serif;
+        scroll-behavior: smooth;
+        /*background-color: black;*/
+    }
 
-  /*body {
-    @apply bg-black text-white antialiased overflow-x-hidden;
-  }*/
-
-  ::selection {
-    background-color: rgba(71, 1, 1, 0.3); /* Wine selection */
-    color: #ffffff;
-  }
+    ::selection {
+        background-color: rgba(168, 85, 247, 0.3); /* Purple selection */
+        color: #ffffff;
+    }
 }
 
 @layer utilities {
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
 
-  .mask-linear-fade {
-    mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-  }
+    /* Extracted from Framer: Horizontal edge fade mask */
+    .mask-linear-fade {
+        mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+        -webkit-mask-image: linear-gradient(
+            to right,
+            transparent,
+            black 20%,
+            black 80%,
+            transparent
+        );
+    }
 
-  .bg-noise {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    pointer-events: none;
-    z-index: 50;
-    opacity: 0.05; 
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-  }
+    /* Extracted from Framer: Bottom fade mask for section elements */
+    .mask-bottom-fade {
+        mask-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0) -10%,
+            rgb(0, 0, 0) 100%
+        );
+        -webkit-mask-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0) -10%,
+            rgb(0, 0, 0) 100%
+        );
+    }
+
+    /* Replicates the complex gradient glassy panels from prop.html mapped to Purple */
+    .glass-panel-purple {
+        backdrop-filter: blur(6px);
+        background: linear-gradient(
+            rgba(192, 132, 252, 0.13) 0%,
+            rgba(168, 85, 247, 0.03) 100%
+        );
+        border: 1px solid rgba(192, 132, 252, 0.2);
+        box-shadow: inset 0px 2px 0px 0px rgba(192, 132, 252, 0.08);
+    }
+
+    .bg-noise {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        z-index: 50;
+        opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .neon-mark {
+        --highlight: #a855f7;
+        --hl-text: #ffffff;
+        --hl-speed: 800ms;
+        --highlighted: 1;
+        position: relative;
+        background: transparent;
+        color: var(--hl-text);
+        display: inline-block;
+        z-index: 2;
+    }
+
+    .neon-mark::after {
+        content: "";
+        position: absolute;
+        left: -0.12em;
+        right: -0.12em;
+        bottom: -0.14em;
+        height: 0.24em;
+        border-radius: 0.24em;
+        transform-origin: left center;
+        transform: scaleX(calc(0.28 + 0.72 * var(--highlighted)));
+        transition: transform var(--hl-speed) cubic-bezier(0.2, 0.8, 0.2, 1);
+        background:
+            radial-gradient(
+                    0.35em 0.2em at 0.28em 50%,
+                    var(--highlight) 98%,
+                    transparent 100%
+                )
+                left center / 0.6em 100% no-repeat,
+            radial-gradient(
+                    0.35em 0.2em at calc(100% - 0.28em) 50%,
+                    var(--highlight) 98%,
+                    transparent 100%
+                )
+                right center / 0.6em 100% no-repeat,
+            linear-gradient(var(--highlight), var(--highlight));
+        box-shadow:
+            0 0 0.5em color-mix(in srgb, var(--highlight) 60%, transparent),
+            0 0 1.2em color-mix(in srgb, var(--highlight) 35%, transparent);
+        z-index: -1;
+    }
 }

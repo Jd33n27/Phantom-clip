@@ -5,14 +5,14 @@ export default function HeroCTA() {
     <div className="flex flex-col items-center gap-8 mt-12 mb-20 w-full relative z-10">
       {/* Buttons Container */}
       <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
-        {/* Primary CTA (Gold Gradient with Glow) */}
+        {/* Primary CTA (Purple Gradient with Glow) */}
         <Link
           href="/booking"
           target="_blank"
           rel="noopener noreferrer"
           className="relative group transition-transform duration-300 hover:scale-105"
         >
-          <div className="bg-linear-to-b from-[#EDB545] to-[#AB7813] rounded-full px-8 py-3.5 shadow-[0_1px_41px_rgba(255,195,74,0.62)]">
+          <div className="bg-linear-to-b from-[#A855F7] to-[#7E22CE] rounded-full px-8 py-3.5 shadow-[0_1px_41px_rgba(168,85,247,0.62)]">
             <span className="text-white font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] uppercase block text-center">
               Book your strategy call now
             </span>
@@ -22,7 +22,7 @@ export default function HeroCTA() {
         {/* Secondary CTA (Text Link) */}
         <Link
           href="/case-studies"
-          className="text-[#E3B96B] hover:text-[#FFF] font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] uppercase transition-colors duration-300 px-6 py-3 text-center"
+          className="text-[#C084FC] hover:text-[#FFF] font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] uppercase transition-colors duration-300 px-6 py-3 text-center"
         >
           See Case Studies
         </Link>
@@ -32,7 +32,7 @@ export default function HeroCTA() {
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-10 opacity-90">
         {/* Point 1 */}
         <div className="flex items-center gap-2.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#E3B96B]"></span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#C084FC]"></span>
           <p className="text-white text-sm font-semibold tracking-tight">
             #1 Creator Network for Brands
           </p>
@@ -40,7 +40,7 @@ export default function HeroCTA() {
 
         {/* Point 2 */}
         <div className="flex items-center gap-2.5">
-          <span className="w-1.5 h-1.5 rounded-full bg-[#E3B96B]"></span>
+          <span className="w-1.5 h-1.5 rounded-full bg-[#C084FC]"></span>
           <p className="text-white text-sm font-semibold tracking-tight">
             Trusted by 500+ Growing Brands
           </p>

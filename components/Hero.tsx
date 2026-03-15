@@ -15,10 +15,13 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter leading-[1.1] -mb-15 bg-linear-to-b from-white via-white to-white/60 bg-clip-text text-transparent"
+          className="text-4xl md:text-5xl lg:text-[46px] font-bold tracking-tighter leading-[1.2] -mb-15 text-white capitalize"
         >
-          <span className="font-serif italic font-normal text-white block sm:inline mr-2">
-            Attention is the real currency. We help you earn more of it.
+          Attention is the{" "}
+          <span className="neon-mark px-1">real currency.</span> We help you{" "}
+          <br className="hidden md:block" />
+          <span className="font-serif italic font-normal text-[#C084FC] text-[48px] md:text-[56px] block sm:inline mt-2 sm:mt-0 sm:ml-2">
+            earn more of it
           </span>
         </motion.h1>
 
@@ -30,7 +33,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="max-w-2xl mx-auto mb-10"
         >
-          <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
+          <p className="text-lg md:text-xl text-gray-400 leading-relaxed font-light">
             <span className="text-white font-semibold">
               A distribution system that turns long-form content into
               visibility, authority, cult-level loyalty, and consistent lead
@@ -46,3 +49,4 @@ export default function Hero() {
     </section>
   );
 }
+ 

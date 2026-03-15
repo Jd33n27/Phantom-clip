@@ -1,27 +1,21 @@
 "use client";
+
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      // Hide navbar when scrolling down, show when scrolling up
-      if (currentScrollY > lastScrollY && currentScrollY > 50) {
-        setIsVisible(false);
-      } else {
-        setIsVisible(true);
-      }
-      setLastScrollY(currentScrollY);
+      // Trigger white variant when scrolled down 50px
+      setScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  }, []);
 
   const navLinks = [
     { name: "Case Studies", href: "#case-studies" },
@@ -32,46 +26,48 @@ export default function Navbar() {
 
   return (
     <motion.nav
-      initial={{ y: 0 }}
-      animate={{ y: isVisible ? 0 : "-150%" }}
-      transition={{ duration: 0.3, ease: "easeInOut" }}
-      className="fixed top-6 left-0 right-0 z-50 w-full flex justify-center px-4 md:px-6"
+      initial={{ y: -50, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out rounded-full px-4 py-3 flex items-center justify-between w-[90%] max-w-3xl border ${
+        scrolled
+          ? "bg-white/90 backdrop-blur-lg border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
+          : "bg-transparent border-transparent"
+      }`}
     >
-      <div
-        className="w-full max-w-5xl flex items-center justify-between px-6 py-3 md:px-10 md:py-4 rounded-full backdrop-blur-lg transition-all duration-300"
-        style={{
-          background: "rgba(255, 255, 255, 0.05)",
-          boxShadow:
-            "0 4px 30px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.1)",
-          border: "1px solid rgba(255, 255, 255, 0.08)",
-        }}
-      >
-        {/* Project Logo & Brand Name */}
-        <a href="#home" className="flex items-center gap-3 group">
-          <div className="relative overflow-hidden rounded-full border border-white/10 shadow-[0_0_15px_rgba(71,1,1,0.5)]">
-            <img
-              src="/logo.png"
-              alt="Phantom Clips"
-              className="w-8 h-8 md:w-10 md:h-10 object-cover"
-            />
-          </div>
-          <span className="text-white text-lg md:text-xl font-medium tracking-wide">
-            Phantom Clips
-          </span>
-        </a>
-
-        {/* Navigation Links */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-white/80 hover:text-white transition-colors text-sm font-medium tracking-wide"
-            >
-              {link.name}
-            </a>
-          ))}
+      {/* Logo Area */}
+      <Link href="/" className="flex items-center gap-2 group outline-hidden">
+        <div className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-black">
+          <img
+            src="/logo.png"
+            alt="Phantomclips Logo"
+            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+          />
         </div>
+        <span
+          className={`font-bold text-lg tracking-tight transition-colors duration-500 ${
+            scrolled ? "text-black" : "text-white"
+          }`}
+        >
+          Phantomclips
+        </span>
+      </Link>
+
+      {/* Navigation Links */}
+      <div className="hidden md:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <Link
+            key={link.name}
+            href={link.href}
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+              scrolled
+                ? "text-gray-700 hover:text-black hover:bg-black/5"
+                : "text-gray-300 hover:text-white hover:bg-white/10"
+            }`}
+          >
+            {link.name}
+          </Link>
+        ))}
       </div>
     </motion.nav>
   );
