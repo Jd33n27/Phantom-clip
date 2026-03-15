@@ -29,15 +29,19 @@ export default function Navbar() {
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5, ease: "easeOut" }}
-      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out rounded-full px-4 py-3 flex items-center justify-between w-[90%] max-w-3xl border ${
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out rounded-full px-4 py-3 flex items-center justify-between w-[90%] max-w-3xl ${
         scrolled
-          ? "bg-white/90 backdrop-blur-lg border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
-          : "bg-transparent border-transparent"
+          ? "bg-white/90 backdrop-blur-lg border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
+          : "glass-panel-purple"
       }`}
     >
       {/* Logo Area */}
       <Link href="/" className="flex items-center gap-2 group outline-hidden">
-        <div className="relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center bg-black">
+        <div
+          className={`relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center transition-colors duration-500 ${
+            scrolled ? "bg-black" : "bg-transparent"
+          }`}
+        >
           <img
             src="/logo.png"
             alt="Phantomclips Logo"

@@ -34,7 +34,7 @@ export default function TrustBadge() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }} // Stagger the bounce
             >
-              <Star className="w-5 h-5 fill-wine text-wine drop-shadow-[0_0_8px_rgba(71,1,1,0.5)]" />
+              <Star className="w-5 h-5 fill-[#C084FC] text-[#C084FC] drop-shadow-[0_0_8px_rgba(192,132,252,0.5)]" />
             </motion.div>
           ))}
         </div>

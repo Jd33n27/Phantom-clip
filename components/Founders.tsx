@@ -35,13 +35,13 @@ const VERIFIED_BADGE_URL =
 
 export default function Founders() {
   return (
-    <section className="relative w-full bg-black py-24 px-6 overflow-hidden flex flex-col items-center">
+    <section className="relative w-full py-24 px-6 overflow-hidden flex flex-col items-center bg-linear-to-b from-white/10 via-black via-50% to-black">
       {/* Background subtle glow to match the original premium feel */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-[#E3B96B]/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-[#C084FC]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="relative z-10 w-full max-w-6xl flex flex-col gap-32 md:gap-40">
         
-        {/* Section Title (Optional based on prior context, keeping it focused on the profiles) */}
+        {/* Section Title */}
         <div className="w-full text-center -mb-10">
           <h2 className="text-white text-[32px] md:text-[38px] font-bold tracking-[-0.01em] font-sans">
             The Minds Behind The System
@@ -74,7 +74,7 @@ export default function Founders() {
                     />
                   </div>
                   
-                  <p className="text-[#E3B96B] font-semibold italic text-[20px] tracking-[-0.01em] mb-6">
+                  <p className="text-[#C084FC] font-semibold italic text-[20px] tracking-[-0.01em] mb-6">
                     {member.role}
                   </p>
                   
@@ -100,7 +100,7 @@ export default function Founders() {
 
               {/* Quote Block */}
               <div className="w-full flex justify-center px-4">
-                <h4 className="text-[#FFCF75] font-serif italic text-[28px] md:text-[32px] text-center tracking-[-0.03em] leading-tight max-w-3xl">
+                <h4 className="text-[#e9d5ff] font-serif italic text-[28px] md:text-[32px] text-center tracking-[-0.03em] leading-tight max-w-3xl">
                   {member.quote}
                 </h4>
               </div>

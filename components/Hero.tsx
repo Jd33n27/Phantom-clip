@@ -7,7 +7,7 @@ import HeroCTA from "./HeroCTA";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex flex-col items-center bg-transparent justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen flex flex-col items-center bg-linear-to-b from-white/10 via-black via-50% to-black justify-center overflow-hidden">
       <HeroBadge />
 
       <div className="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center text-center mt-20">
@@ -49,4 +49,3 @@ export default function Hero() {
     </section>
   );
 }
- 

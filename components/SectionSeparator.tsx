@@ -13,11 +13,11 @@ export default function SectionSeparator({
     >
       <div className={`relative w-full ${width} group`}>
         {/* The Outer Glow (Blurry backing) */}
-        <div className="absolute -inset-1 bg-wine rounded-full blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
+        <div className="absolute -inset-1 bg-[#a855f7] rounded-full blur-md opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
 
         {/* The Main Brush Stroke */}
         <div
-          className="relative h-3 w-full rounded-[50%] bg-linear-to-r from-[#2d0101] via-wine to-[#2d0101] shadow-[0_0_15px_rgba(71,1,1,0.5)]"
+          className="relative h-3 w-full rounded-[50%] bg-linear-to-r from-[#3b0764] via-[#a855f7] to-[#3b0764] shadow-[0_0_15px_rgba(168,85,247,0.5)]"
           style={{
             clipPath: "polygon(2% 40%, 100% 0%, 98% 100%, 0% 100%)",
             transform: "rotate(-1deg)",
@@ -25,7 +25,7 @@ export default function SectionSeparator({
         />
 
         {/* The Inner "White/Bright" Core for the neon effect */}
-        <div className="absolute top-1 left-4 right-4 h-1 bg-red-200 rounded-full opacity-30 mix-blend-overlay" />
+        <div className="absolute top-1 left-4 right-4 h-1 bg-[#e9d5ff] rounded-full opacity-30 mix-blend-overlay" />
       </div>
     </div>
   );

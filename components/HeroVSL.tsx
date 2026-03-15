@@ -36,7 +36,7 @@ export default function HeroVSL() {
   `;
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto mt-12 md:mt-16 rounded-2xl overflow-hidden border border-white/10 shadow-[0_0_40px_rgba(255,255,255,0.05)] bg-white/5 backdrop-blur-sm p-2 z-10">
+    <div className="relative w-full max-w-4xl mx-auto mt-12 md:mt-16 rounded-2xl overflow-hidden border border-[#C084FC]/20 shadow-[0_0_40px_rgba(192,132,252,0.15)] bg-white/5 backdrop-blur-sm p-2 z-10">
       {/* Wrapper to maintain a standard 16:9 video aspect ratio */}
       <div className="relative w-full aspect-video rounded-xl overflow-hidden bg-black shadow-inner">
         <iframe

@@ -71,7 +71,7 @@ export default function Projects() {
   return (
     <section
       id="case-studies"
-      className="w-full bg-black/40 py-24 overflow-hidden flex flex-col items-center relative z-10"
+      className="w-full bg-linear-to-b from-white/10 via-black via-50% to-black py-24 overflow-hidden flex flex-col items-center relative z-10"
     >
       {/* Header Section */}
       <div className="w-full max-w-6xl px-6 flex flex-col items-center mb-16">

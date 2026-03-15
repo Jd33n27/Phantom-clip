@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { Rocket, TrendingUp, Users } from "lucide-react";
 import SectionSeparator from "./SectionSeparator";
-import SpotlightCard from "./SpotLightCard";
 
 const steps = [
   {
@@ -12,7 +11,7 @@ const steps = [
       "We create a private, dedicated clipping community for your brand. You simply send us your content (preferably organized in a Google Drive), and we take care of the rest, including onboarding clippers from both your audience and our network of thousands.",
     tags: ["Vision Alignment", "Community Building"],
     icon: <Users className="w-8 h-8 text-white" />,
-    gradient: "from-red-950/20 to-black",
+    gradient: "from-[#a855f7]/20 to-black",
   },
   {
     stage: "Stage 2",
@@ -21,7 +20,7 @@ const steps = [
       "Once inside your community, clippers are guided through our proven launch process. The clippers are coached to produce strong content that aligns your brand vision, content guidelines, and platform strategy.",
     tags: ["Content Refinement", "Strategic Selection"],
     icon: <Rocket className="w-8 h-8 text-white" />,
-    gradient: "from-red-900/20 to-black",
+    gradient: "from-[#9333ea]/20 to-black",
   },
   {
     stage: "Stage 3",
@@ -30,7 +29,7 @@ const steps = [
       "Our team actively manages your community daily, answering questions, building relationships, and keeping energy high. Every post submission is manually reviewed for quality before approval, ensuring only top-tier content is approved for payouts.",
     tags: ["Multi-Platform Reach", "Audience Growth"],
     icon: <TrendingUp className="w-8 h-8 text-white" />,
-    gradient: "from-red-800/20 to-black",
+    gradient: "from-[#7e22ce]/20 to-black",
     cta: true,
   },
 ];
@@ -39,12 +38,12 @@ export default function Process() {
   return (
     <section
       id="process"
-      className="w-full bg-black py-24 px-6 relative overflow-hidden"
+      className="w-full py-24 px-6 relative overflow-hidden bg-linear-to-b from-white/10 via-black via-50% to-black"
     >
-      <div className="max-w-7xl mx-auto flex flex-col items-center mb-20 text-center">
+      <div className="max-w-7xl mx-auto flex flex-col items-center mb-20 text-center relative z-10">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/5 bg-white/5 mb-6">
-          <span className="w-2 h-2 rounded-full bg-wine animate-pulse" />
-          <span className="text-sm font-medium text-red-100">
+          <span className="w-2 h-2 rounded-full bg-[#a855f7] animate-pulse" />
+          <span className="text-sm font-medium text-purple-100">
             How We Work?
           </span>
         </div>
@@ -67,15 +66,17 @@ export default function Process() {
             viewport={{ once: true }}
             className="h-full"
           >
-            <SpotlightCard className="flex flex-col h-full group" spotlightColor="rgba(71, 1, 1, 0.25)">
-              <div className={`h-48 w-full bg-linear-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}>
-                <div className="relative w-20 h-20 rounded-full border border-red-900/30 flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(71,1,1,0.2)]">
+            <div className="flex flex-col h-full group glass-panel-purple rounded-[20px] overflow-hidden bg-[#0D0D0D]/60 shadow-[0_16px_24px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:-translate-y-1">
+              <div
+                className={`h-48 w-full bg-linear-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}
+              >
+                <div className="relative w-20 h-20 rounded-full border border-purple-900/30 flex items-center justify-center bg-black/40 shadow-[0_0_30px_rgba(168,85,247,0.2)]">
                   {step.icon}
-                  <div className="absolute top-1/2 -left-full w-full h-px bg-linear-to-r from-transparent to-red-900/20" />
-                  <div className="absolute top-1/2 -right-full w-full h-px bg-linear-to-l from-transparent to-red-900/20" />
+                  <div className="absolute top-1/2 -left-full w-full h-px bg-linear-to-r from-transparent to-purple-900/20" />
+                  <div className="absolute top-1/2 -right-full w-full h-px bg-linear-to-l from-transparent to-purple-900/20" />
                 </div>
 
-                <div className="absolute top-4 right-4 px-3 py-1 rounded-full border border-white/5 bg-black/40 text-xs font-semibold text-red-300">
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full border border-white/5 bg-black/40 text-xs font-semibold text-purple-300">
                   {step.stage}
                 </div>
               </div>
@@ -96,7 +97,7 @@ export default function Process() {
                   {step.cta && (
                     <a
                       href="https://calendly.com/anuragbiz69"
-                      className="block w-full py-3 rounded-xl bg-wine hover:bg-wine-light text-white font-bold text-center transition-all shadow-[0_0_20px_rgba(71,1,1,0.3)] hover:shadow-[0_0_25px_rgba(71,1,1,0.5)] mb-6"
+                      className="block w-full py-3 rounded-xl bg-[#a855f7] hover:bg-[#9333ea] text-white font-bold text-center transition-all shadow-[0_0_20px_rgba(168,85,247,0.3)] hover:shadow-[0_0_25px_rgba(168,85,247,0.5)] mb-6"
                     >
                       Book an Appointment
                     </a>
@@ -104,18 +105,21 @@ export default function Process() {
 
                   <div className="flex flex-wrap gap-2">
                     {step.tags.map((tag, i) => (
-                      <div key={i} className="px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 text-xs text-gray-300 font-medium">
+                      <div
+                        key={i}
+                        className="px-3 py-1.5 rounded-lg border border-white/5 bg-white/5 text-xs text-gray-300 font-medium"
+                      >
                         {tag}
                       </div>
                     ))}
                   </div>
                 </div>
               </div>
-            </SpotlightCard>
+            </div>
           </motion.div>
         ))}
       </div>
-      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-red-950 to-transparent" />
+      <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-purple-950 to-transparent" />
     </section>
   );
 }

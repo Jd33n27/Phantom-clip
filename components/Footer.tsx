@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Footer() {
   return (
-    <footer className="w-full bg-black pt-24 pb-12 flex flex-col items-center justify-center relative overflow-hidden px-6">
+    <footer className="w-full bg-linear-to-b from-white/10 via-black via-50% to-black pt-24 pb-12 flex flex-col items-center justify-center relative overflow-hidden px-6">
       {/* Top Background Separator Line */}
       <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent"></div>
 
@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Tag */}
           <div className="flex items-center gap-4 mb-6">
             <div className="w-12 h-px bg-white/20"></div>
-            <p className="text-[#E3B96B] font-normal tracking-[-0.02em] leading-[1.6em]">
+            <p className="text-[#C084FC] font-normal tracking-[-0.02em] leading-[1.6em]">
               <em>Reach out anytime</em>
             </p>
             <div className="w-12 h-px bg-white/20"></div>
@@ -23,7 +23,7 @@ export default function Footer() {
           <h2 className="text-[36px] md:text-[42px] font-bold text-white leading-tight mb-6 text-center tracking-tight">
             Achieve More Than Ever <br className="hidden md:block" />
             Before with{" "}
-            <span className="text-[#E3B96B] font-serif italic text-[42px] md:text-[49px] font-normal">
+            <span className="text-[#C084FC] font-serif italic text-[42px] md:text-[49px] font-normal">
               Propaganda
             </span>
           </h2>
@@ -47,8 +47,8 @@ export default function Footer() {
               className="px-8 py-3.5 rounded-[52px]"
               style={{
                 background:
-                  "linear-gradient(180deg, rgb(237, 181, 69) 0%, rgb(171, 120, 19) 100%)",
-                boxShadow: "rgba(255, 195, 74, 0.62) 0px 1px 41px 0px",
+                  "linear-gradient(180deg, rgb(168, 85, 247) 0%, rgb(126, 34, 206) 100%)",
+                boxShadow: "rgba(168, 85, 247, 0.62) 0px 1px 41px 0px",
               }}
             >
               <span className="text-white font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] leading-7 uppercase block text-center">
@@ -62,7 +62,7 @@ export default function Footer() {
             href="/case-studies"
             className="group transition-transform duration-300 hover:scale-105 block"
           >
-            <span className="text-[#E3B96B] font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] leading-7 uppercase text-center block py-3.5 px-4">
+            <span className="text-[#C084FC] font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] leading-7 uppercase text-center block py-3.5 px-4">
               See Case Studies
             </span>
           </Link>

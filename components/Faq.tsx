@@ -63,13 +63,11 @@ export default function Faq() {
   return (
     <section
       id="faq"
-      className="w-full bg-black/40 py-24 px-6 relative overflow-hidden flex justify-center"
+      className="w-full bg-linear-to-b from-white/10 via-black via-50% to-black py-24 px-6 relative overflow-hidden flex justify-center"
     >
       <div className="w-full max-w-6xl flex flex-col lg:flex-row gap-16 lg:gap-24 relative z-10">
-        
         {/* Left Column: Info & CTA */}
         <div className="flex flex-col items-start w-full lg:w-5/12 lg:sticky lg:top-32 self-start">
-          
           {/* Badge */}
           <div className="flex items-center gap-3 px-4 py-2 rounded-[20px] bg-[#0D0D0D] mb-8 glass-panel-purple">
             <div className="w-5 h-5 rounded-[10px] bg-[#C084FC] flex items-center justify-center p-0.5">
@@ -119,8 +117,12 @@ export default function Faq() {
                 key={index}
                 className="glass-panel-purple rounded-[20px] overflow-hidden transition-all duration-300"
                 style={{
-                  backgroundColor: isOpen ? "rgba(13, 13, 13, 0.8)" : "rgba(13, 13, 13, 0.4)",
-                  boxShadow: isOpen ? "rgba(0, 0, 0, 0.4) 0px 18px 20px 8px" : "none",
+                  backgroundColor: isOpen
+                    ? "rgba(13, 13, 13, 0.8)"
+                    : "rgba(13, 13, 13, 0.4)",
+                  boxShadow: isOpen
+                    ? "rgba(0, 0, 0, 0.4) 0px 18px 20px 8px"
+                    : "none",
                 }}
               >
                 <button
@@ -130,7 +132,7 @@ export default function Faq() {
                   <span className="text-white text-[18px] md:text-[20px] font-bold tracking-tight pr-4">
                     {faq.question}
                   </span>
-                  
+
                   {/* Framer-style smooth icon rotation */}
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
@@ -154,7 +156,11 @@ export default function Faq() {
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
-                      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 300,
+                        damping: 30,
+                      }}
                     >
                       <div className="p-6 pt-0 text-white/70 text-[16px] leading-[1.6]">
                         {faq.answer}
