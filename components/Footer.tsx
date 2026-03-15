@@ -1,22 +1,89 @@
+import Link from "next/link";
+import Image from "next/image";
+
 export default function Footer() {
   return (
-    <footer className="w-full bg-black py-24 flex flex-col items-center justify-center relative overflow-hidden">
-      {/* Subtle wine ambient glow behind the footer */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-wine/10 blur-[80px] rounded-full pointer-events-none" />
+    <footer className="w-full bg-black pt-24 pb-12 flex flex-col items-center justify-center relative overflow-hidden px-6">
+      {/* Top Background Separator Line */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
 
-      {/* Big Circular Logo Container */}
-      <div className="relative z-10 w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-[3px] border-wine/30 shadow-[0_0_40px_rgba(71,1,1,0.3)] mb-6 bg-black">
-        <img
-          src="/logo.png"
-          alt="Phantom Clip Logo"
-          className="w-full h-full object-cover"
-        />
+      <div className="relative z-10 flex flex-col items-center w-full max-w-4xl">
+        {/* Text Section */}
+        <div className="flex flex-col items-center text-center mb-10">
+          {/* Tag */}
+          <div className="flex items-center gap-4 mb-6">
+            <div className="w-12 h-[1px] bg-white/20"></div>
+            <p className="text-[#E3B96B] font-normal tracking-[-0.02em] leading-[1.6em]">
+              <em>Reach out anytime</em>
+            </p>
+            <div className="w-12 h-[1px] bg-white/20"></div>
+          </div>
+
+          {/* Heading */}
+          <h2 className="text-[36px] md:text-[42px] font-bold text-white leading-tight mb-6 text-center tracking-tight">
+            Achieve More Than Ever <br className="hidden md:block" />
+            Before with{" "}
+            <span className="text-[#E3B96B] font-serif italic text-[42px] md:text-[49px] font-normal">
+              Propaganda
+            </span>
+          </h2>
+
+          {/* Subtext */}
+          <p className="text-white/60 text-[16px] md:text-[18px] tracking-[-0.02em] leading-[1.6em] text-center max-w-lg">
+            Let’s bring something extraordinary to life.
+          </p>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col md:flex-row items-center gap-6 mt-4 mb-20">
+          {/* Primary CTA */}
+          <Link
+            href="/booking"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative transition-transform duration-300 hover:scale-105 block"
+          >
+            <div
+              className="px-8 py-3.5 rounded-[52px]"
+              style={{
+                background:
+                  "linear-gradient(180deg, rgb(237, 181, 69) 0%, rgb(171, 120, 19) 100%)",
+                boxShadow: "rgba(255, 195, 74, 0.62) 0px 1px 41px 0px",
+              }}
+            >
+              <span className="text-white font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] leading-[28px] uppercase block text-center">
+                Book your strategy call now
+              </span>
+            </div>
+          </Link>
+
+          {/* Secondary CTA */}
+          <Link
+            href="/case-studies"
+            className="group transition-transform duration-300 hover:scale-105 block"
+          >
+            <span className="text-[#E3B96B] font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] leading-[28px] uppercase text-center block py-3.5 px-4">
+              See Case Studies
+            </span>
+          </Link>
+        </div>
       </div>
 
-      {/* Text */}
-      <h2 className="relative z-10 text-3xl md:text-4xl font-bold text-white tracking-wider">
-        Phantom Clips
-      </h2>
+      {/* Bottom Branding Section */}
+      <div className="relative z-10 w-full max-w-6xl mt-4 pt-12 border-t border-white/10 flex items-center justify-center gap-4">
+        <div className="w-27 h-27 relative overflow-hidden rounded-full">
+          <Image
+            src="/logo.png"
+            alt="Phantom Clips Logo"
+            fill
+            className="object-cover"
+            sizes="300px"
+          />
+        </div>
+        <span className="text-white font-bold text-2xl tracking-wide">
+          Phantom Clips
+        </span>
+      </div>
     </footer>
   );
 }

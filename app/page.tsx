@@ -1,10 +1,8 @@
 import Hero from "@/components/Hero";
-import VSLSection from "@/components/VSLSection";
-import TrustBadge from "@/components/TrustBadge";
-import Ticker from "@/components/Ticker";
-import Process from "@/components/Process";
 import FAQ from "@/components/Faq";
-import Contact from "@/components/Contact";
+import Services from "@/components/Services";
+import Founders from "@/components/Founders";
+import Projects from "@/components/Projects";
 
 export default function Home() {
   return (
@@ -12,19 +10,20 @@ export default function Home() {
       <div id="home">
         <Hero />
       </div>
-      <div id="about">
-        <VSLSection />
+      
+      <div id="projects">
+        <Projects />
       </div>
-      <TrustBadge />
-      <Ticker />
-      <div id="process">
-        <Process />
+      
+      <div id="contact">
+        <Founders />
+      </div>
+      
+      <div id="contact">
+        <Services />
       </div>
       <div id="faq">
         <FAQ />
-      </div>
-      <div id="contact">
-        <Contact />
       </div>
     </div>
   );
