@@ -95,7 +95,7 @@ export default function VisualEffects() {
       />
 
       {/* 3. Global Bottom Background Black Overlay */}
-      <div className="fixed bottom-0 left-0 w-full h-[35vh] z-[40] pointer-events-none bg-linear-to-t from-black via-black/60 to-transparent" />
+      <div className="fixed bottom-0 left-0 w-full h-[35vh] z-40 pointer-events-none bg-linear-to-t from-black via-black/60 to-transparent" />
     </>
   );
 }

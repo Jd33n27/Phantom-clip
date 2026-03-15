@@ -79,9 +79,9 @@ export default function Projects() {
         <div
           className="flex items-center gap-3 px-4 py-2 rounded-[20px] bg-[#0D0D0D] mb-8 glass-panel-purple border border-[#C084FC]/20"
         >
-          <div className="w-5 h-5 rounded-[10px] bg-[#C084FC] flex items-center justify-center p-[2px]">
-            <div className="w-full h-full rounded-[8px] bg-[#0D0D0D] flex items-center justify-center p-[2px]">
-              <div className="w-full h-full rounded-[6px] bg-[#C084FC]"></div>
+          <div className="w-5 h-5 rounded-[10px] bg-[#C084FC] flex items-center justify-center p-0.5">
+            <div className="w-full h-full rounded-lg bg-[#0D0D0D] flex items-center justify-center p-0.5">
+              <div className="w-full h-full rounded-md bg-[#C084FC]"></div>
             </div>
           </div>
           <p className="text-white text-[13px] tracking-[-0.02em] font-medium uppercase">
@@ -103,12 +103,12 @@ export default function Projects() {
       </div>
 
       {/* Carousel Section */}
-      <div className="relative w-full max-w-[1600px] mx-auto group">
+      <div className="relative w-full max-w-400 mx-auto group">
         
         {/* Left Control */}
         <button
           onClick={() => scroll("left")}
-          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center border border-white/10 text-white/70 hover:text-white hover:bg-black/80 hover:border-[#C084FC]/50 transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex"
+          className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/50 backdrop-blur-md items-center justify-center border border-white/10 text-white/70 hover:text-white hover:bg-black/80 hover:border-[#C084FC]/50 transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex"
           aria-label="Scroll left"
         >
           <ChevronLeft className="w-6 h-6" />
@@ -126,7 +126,7 @@ export default function Projects() {
               className="snap-center outline-hidden"
             >
               <div
-                className="relative group overflow-hidden rounded-2xl flex-shrink-0 w-[300px] md:w-[400px] h-[400px] border border-[#C084FC]/20"
+                className="relative group overflow-hidden rounded-2xl shrink-0 w-75 md:w-100 h-100 border border-[#C084FC]/20"
                 style={{ boxShadow: "rgba(0, 0, 0, 0.4) 16px 24px 20px 8px" }}
               >
                 {/* Image & Bottom Fade Mask applied via CSS class */}
@@ -160,7 +160,7 @@ export default function Projects() {
         {/* Right Control */}
         <button
           onClick={() => scroll("right")}
-          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/50 backdrop-blur-md flex items-center justify-center border border-white/10 text-white/70 hover:text-white hover:bg-black/80 hover:border-[#C084FC]/50 transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex"
+          className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 w-12 h-12 rounded-full bg-black/50 backdrop-blur-md items-center justify-center border border-white/10 text-white/70 hover:text-white hover:bg-black/80 hover:border-[#C084FC]/50 transition-all duration-300 opacity-0 group-hover:opacity-100 hidden md:flex"
           aria-label="Scroll right"
         >
           <ChevronRight className="w-6 h-6" />

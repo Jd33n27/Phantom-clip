@@ -72,9 +72,9 @@ export default function Faq() {
           
           {/* Badge */}
           <div className="flex items-center gap-3 px-4 py-2 rounded-[20px] bg-[#0D0D0D] mb-8 glass-panel-purple">
-            <div className="w-5 h-5 rounded-[10px] bg-[#C084FC] flex items-center justify-center p-[2px]">
-              <div className="w-full h-full rounded-[8px] bg-[#0D0D0D] flex items-center justify-center p-[2px]">
-                <div className="w-full h-full rounded-[6px] bg-[#C084FC]"></div>
+            <div className="w-5 h-5 rounded-[10px] bg-[#C084FC] flex items-center justify-center p-0.5">
+              <div className="w-full h-full rounded-lg bg-[#0D0D0D] flex items-center justify-center p-0.5">
+                <div className="w-full h-full rounded-md bg-[#C084FC]"></div>
               </div>
             </div>
             <p className="text-white text-[13px] tracking-[-0.02em] font-medium uppercase">
@@ -135,7 +135,7 @@ export default function Faq() {
                   <motion.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.3, ease: "easeInOut" }}
-                    className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
+                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${
                       isOpen ? "bg-[#C084FC]" : "bg-white/10"
                     }`}
                   >

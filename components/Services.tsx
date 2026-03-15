@@ -8,7 +8,7 @@ export default function Services() {
       className="relative w-full bg-black/40 py-24 px-6 flex flex-col items-center overflow-hidden"
     >
       {/* Background Lights / Glow Effect */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[722px] opacity-60 pointer-events-none">
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-180.5 opacity-60 pointer-events-none">
         <img
           src="https://framerusercontent.com/images/hIDqfiTbY3IysibAQMXdLAh3FIg.svg"
           alt="Light Rays"

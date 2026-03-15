@@ -37,12 +37,12 @@ export default function Founders() {
   return (
     <section className="relative w-full bg-black py-24 px-6 overflow-hidden flex flex-col items-center">
       {/* Background subtle glow to match the original premium feel */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#E3B96B]/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-200 h-200 bg-[#E3B96B]/5 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="relative z-10 w-full max-w-6xl flex flex-col gap-32 md:gap-40">
         
         {/* Section Title (Optional based on prior context, keeping it focused on the profiles) */}
-        <div className="w-full text-center mb-[-40px]">
+        <div className="w-full text-center -mb-10">
           <h2 className="text-white text-[32px] md:text-[38px] font-bold tracking-[-0.01em] font-sans">
             The Minds Behind The System
           </h2>
@@ -85,14 +85,14 @@ export default function Founders() {
 
                 {/* Portrait Image */}
                 <div className="w-full lg:w-1/2 flex justify-center">
-                  <div className="relative w-full max-w-[500px] aspect-[4/5] md:aspect-[3/4] rounded-[24px] overflow-hidden shadow-2xl">
+                  <div className="relative w-full max-w-125 aspect-4/5 md:aspect-3/4 rounded-3xl overflow-hidden shadow-2xl">
                     <img
                       src={member.image}
                       alt={member.name}
                       className="w-full h-full object-cover object-center grayscale hover:grayscale-0 transition-all duration-500"
                     />
                     {/* Gradient overlay to replicate the Framer mask effect */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
+                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent pointer-events-none"></div>
                   </div>
                 </div>
 
