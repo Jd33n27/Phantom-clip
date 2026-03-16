@@ -6,7 +6,7 @@ export default function Services() {
   return (
     <section
       id="why-us"
-      className="relative w-full bg-linear-to-b from-white/10 via-black via-50% to-black py-24 px-4 md:px-8 flex flex-col items-center overflow-hidden"
+      className="relative w-full bg-linear-to-b from-white/10 via-black via-50% to-black pt-0 pb-24 px-4 md:px-8 flex flex-col items-center overflow-hidden"
     >
       {/* Background Lights / Glow Effect for the outer section */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-180.5 opacity-60 pointer-events-none z-0">
@@ -17,8 +17,20 @@ export default function Services() {
         />
       </div>
 
-      {/* Central Dark Panel (Not Full Width) */}
+      {/* Central Dark Panel */}
       <div className="relative w-full max-w-6xl bg-[#0a0a0a] rounded-[40px] border border-white/5 p-8 md:p-16 flex flex-col items-center z-10 shadow-[0_0_50px_rgba(0,0,0,0.5)]">
+        {/* === Left Glowing Margin === */}
+        <div className="absolute left-0 top-[10%] bottom-[10%] w-0.5 bg-linear-to-b from-transparent via-[#C084FC] to-transparent shadow-[0_0_15px_3px_#A855F7] z-20 pointer-events-none">
+          {/* Inner bright core */}
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-0.5 h-1/3 bg-white/60 blur-[1px]"></div>
+        </div>
+
+        {/* === Right Glowing Margin === */}
+        <div className="absolute right-0 top-[10%] bottom-[10%] w-0.5 bg-linear-to-b from-transparent via-[#C084FC] to-transparent shadow-[0_0_15px_3px_#A855F7] z-20 pointer-events-none">
+          {/* Inner bright core */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-0.5 h-1/3 bg-white/60 blur-[1px]"></div>
+        </div>
+
         {/* Animated Purple Dust & Net Background confined to this panel */}
         <PurpleDustGrid />
 

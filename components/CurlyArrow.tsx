@@ -6,22 +6,23 @@ export default function CurlyArrow({ className = "" }: CurlyArrowProps) {
   return (
     <svg
       className={className}
-      viewBox="0 0 100 120"
+      viewBox="0 0 100 200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      style={{ overflow: "visible" }}
     >
-      {/* Hand-drawn style curving path */}
+      {/* Tall, vertically straight hand-drawn loop */}
       <path
-        d="M20 10 C 50 10, 80 40, 60 90"
-        stroke="#E3B96B"
-        strokeWidth="4"
+        d="M 50 10 C 50 60 90 70 80 110 C 70 150 20 130 30 90 C 40 50 60 110 50 180"
+        stroke="currentColor"
+        strokeWidth="7"
         strokeLinecap="round"
       />
-      {/* Arrow head */}
+      {/* Arrow head pointing straight down */}
       <path
-        d="M40 75 L 60 90 L 75 65"
-        stroke="#E3B96B"
-        strokeWidth="4"
+        d="M 35 165 L 50 185 L 65 165"
+        stroke="currentColor"
+        strokeWidth="7"
         strokeLinecap="round"
         strokeLinejoin="round"
       />
