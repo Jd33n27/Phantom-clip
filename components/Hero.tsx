@@ -10,7 +10,7 @@ export default function Hero() {
     <section className="relative w-full min-h-screen flex flex-col items-center bg-linear-to-b from-white/10 via-black via-50% to-black justify-center overflow-hidden">
       <HeroBadge />
 
-      <div className="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center text-center mt-20">
+      <div className="relative z-10 w-full max-w-4xl px-6 flex flex-col items-center text-center mt-5">
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
