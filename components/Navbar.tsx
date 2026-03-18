@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { X } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -37,8 +37,8 @@ export default function Navbar() {
   ];
 
   const navbarClasses = isMobile
-    ? "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out rounded-full px-2 py-2 flex items-center justify-between w-[90%] max-w-sm bg-white shadow-[0_8px_32px_rgba(0,0,0,0.2)] border-2 border-purple-500"
-    : `fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out rounded-full px-4 py-3 flex items-center justify-between w-[90%] max-w-3xl ${
+    ? "fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out bg-white rounded-full pl-6 pr-2.5 py-2.5 flex items-center justify-between w-[90%] max-w-sm border border-gray-100 shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
+    : `fixed top-4 left-1/2 -translate-x-1/2 z-50 transition-all duration-500 ease-in-out rounded-full px-6 py-3 flex items-center justify-between w-[90%] max-w-3xl ${
         scrolled
           ? "bg-white/90 backdrop-blur-lg border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.2)]"
           : "glass-panel-purple"
@@ -52,39 +52,21 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className={navbarClasses}
       >
-        <Link href="/" className="flex items-center gap-2 group outline-hidden">
-          <AnimatePresence>
-            {!isMobile && (
-              <motion.div
-                initial={{ width: 0, opacity: 0 }}
-                animate={{ width: "2rem", opacity: 1 }}
-                exit={{ width: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className={`relative w-8 h-8 rounded-full overflow-hidden flex items-center justify-center transition-colors duration-500 ${
-                  scrolled ? "bg-black" : "bg-transparent"
-                }`}
-              >
-                <img
-                  src="/logo.png"
-                  alt="Phantomclips Logo"
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-              </motion.div>
-            )}
-          </AnimatePresence>
+        <Link
+          href="/"
+          className="flex items-center gap-2 group outline-hidden"
+          onClick={() => setMobileMenuOpen(false)}
+        >
           <span
-            className={`font-bold text-lg tracking-tight transition-colors duration-500 ${
-              isMobile
-                ? "text-purple-600"
-                : scrolled
-                  ? "text-black"
-                  : "text-white"
+            className={`font-medium text-xl tracking-tight transition-colors duration-500 ${
+              isMobile ? "text-black" : scrolled ? "text-black" : "text-white"
             }`}
           >
-            Phantomclips
+            PhantomClips
           </span>
         </Link>
 
+        {/* Desktop Links */}
         <div className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
@@ -101,46 +83,41 @@ export default function Navbar() {
           ))}
         </div>
 
+        {/* Mobile Custom Hamburger Button */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className={`md:hidden p-2 rounded-full transition-colors duration-300 ${
-            isMobile
-              ? "bg-purple-600 text-white"
-              : scrolled
-                ? "text-black hover:bg-black/5"
-                : "text-white hover:bg-white/10"
-          }`}
+          className="md:hidden w-12 h-10 bg-purple-600 hover:bg-purple-700 rounded-xl flex flex-col items-center justify-center transition-colors duration-300"
+          aria-label="Toggle menu"
         >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {mobileMenuOpen ? (
+            <X size={22} className="text-white" />
+          ) : (
+            // Changed to items-end so the 60% line aligns to the right (empty space on the left)
+            <div className="flex flex-col items-end justify-center gap-[4px] w-[22px]">
+              <span className="w-full h-[2px] bg-white rounded-full"></span>
+              <span className="w-full h-[2px] bg-white rounded-full"></span>
+              <span className="w-[60%] h-[2px] bg-white rounded-full"></span>
+            </div>
+          )}
         </button>
       </motion.nav>
 
+      {/* Mobile Menu Dropdown */}
       <AnimatePresence>
-        {mobileMenuOpen && (
+        {mobileMenuOpen && isMobile && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className={`fixed top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-sm z-40 rounded-2xl p-4 flex flex-col gap-2 shadow-2xl ${
-              isMobile
-                ? "bg-white/95 backdrop-blur-xl border border-purple-500/10"
-                : scrolled
-                  ? "bg-white/95 backdrop-blur-xl border border-black/10"
-                  : "glass-panel-purple bg-[#0D0D0D]/90"
-            }`}
+            initial={{ opacity: 0, y: -20, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -20, scale: 0.95 }}
+            transition={{ duration: 0.2 }}
+            className="fixed top-24 left-1/2 -translate-x-1/2 w-[90%] max-w-sm z-40 bg-white/95 backdrop-blur-xl border border-gray-100 shadow-2xl rounded-2xl p-4 flex flex-col gap-2"
           >
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`px-4 py-3 rounded-xl text-center font-medium transition-colors ${
-                  isMobile
-                    ? "text-purple-600 hover:bg-purple-100/50"
-                    : scrolled
-                      ? "text-gray-800 hover:bg-black/5"
-                      : "text-gray-200 hover:bg-white/10"
-                }`}
+                className="px-4 py-3 rounded-xl text-center font-medium text-gray-800 hover:bg-purple-50 hover:text-purple-600 transition-colors"
               >
                 {link.name}
               </Link>
