@@ -12,7 +12,7 @@ export default function HeroCTA() {
           rel="noopener noreferrer"
           className="relative group transition-transform duration-300 hover:scale-105"
         >
-          <div className="bg-linear-to-b from-[#A855F7] to-[#7E22CE] rounded-full px-8 py-3.5 shadow-[0_1px_41px_rgba(168,85,247,0.62)]">
+          <div className="bg-linear-to-b from-[#A855F7] to-[#7E22CE] rounded-full px-8 py-3.5 shadow-[0_0_35px_rgba(168,85,247,0.6)] border-[3px] border-[#E9D5FF]">
             <span className="text-white font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] uppercase block text-center">
               Book your strategy call now
             </span>
@@ -22,7 +22,7 @@ export default function HeroCTA() {
         {/* Secondary CTA (Text Link) */}
         <Link
           href="/case-studies"
-          className="text-[#C084FC] hover:text-[#FFF] font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] uppercase transition-colors duration-300 px-6 py-3 text-center"
+          className="text-[#C084FC] hover:text-[#FFF] font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] uppercase transition-colors duration-300 px-6 py-3 text-center border-[3px] border-[#E9D5FF] rounded-full shadow-[0_0_25px_rgba(168,85,247,0.4)] bg-[#C084FC]/10"
         >
           See Case Studies
         </Link>

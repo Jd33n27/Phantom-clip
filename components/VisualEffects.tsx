@@ -38,10 +38,10 @@ export default function VisualEffects() {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          radius: Math.random() * 1.5 + 0.5,
+          radius: Math.random() * 2 + 0.5, // Slightly larger particles
           vx: (Math.random() - 0.5) * 0.2,
           vy: (Math.random() - 0.5) * 0.2,
-          alpha: Math.random() * 0.5 + 0.1,
+          alpha: Math.random() * 0.6 + 0.4, // Higher base opacity (0.4 - 1.0)
         });
       }
     };
@@ -59,8 +59,10 @@ export default function VisualEffects() {
 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-        // Purple sprinkles matching #C084FC
+        // Purple sprinkles matching #C084FC with added glow
         ctx.fillStyle = `rgba(192, 132, 252, ${p.alpha})`;
+        ctx.shadowBlur = 10;
+        ctx.shadowColor = `rgba(192, 132, 252, ${p.alpha})`;
         ctx.fill();
       });
 
@@ -95,7 +97,7 @@ export default function VisualEffects() {
       />
 
       {/* 3. Global Bottom Background Black Overlay */}
-      <div className="fixed bottom-0 left-0 w-full h-[35vh] z-40 pointer-events-none bg-linear-to-t from-black via-black/60 to-transparent" />
+      <div className="fixed bottom-0 left-0 w-full h-[20vh] z-40 pointer-events-none bg-linear-to-t from-black/80 via-black/30 to-transparent" />
     </>
   );
 }

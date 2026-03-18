@@ -69,7 +69,7 @@ export default function Founders() {
                   {/* Portrait Image */}
                   <div className="w-full lg:w-1/2 flex mt-18 justify-center relative">
                     {index === 0 && (
-                      <div className="absolute -top-28 -left-4 md:-top-36 md:-left-8 z-30 w-16 md:w-20 text-[#C084FC] hidden md:block drop-shadow-lg">
+                      <div className="absolute -top-20 left-1/2 -translate-x-1/2 md:-top-36 md:left-[-2rem] md:translate-x-0 z-30 w-14 md:w-20 text-[#C084FC] drop-shadow-lg">
                         <CurlyArrow />
                       </div>
                     )}

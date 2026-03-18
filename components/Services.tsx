@@ -1,6 +1,8 @@
+"use client";
 import Link from "next/link";
 import { Sliders, Activity, Users, Layers } from "lucide-react";
 import PurpleDustGrid from "./PurpleDustGrid";
+import { motion } from "framer-motion";
 
 export default function Services() {
   return (
@@ -62,8 +64,12 @@ export default function Services() {
           {/* Bento Cards Grid - Converted to Purple Glass Panels */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full mb-20">
             {/* Card 1 */}
-            <div
-              className="glass-panel-purple bg-[#0D0D0D]/60 rounded-[20px] p-8 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="glass-panel-purple bg-[#0D0D0D]/30 rounded-[20px] p-8 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
               style={{ boxShadow: "rgba(0, 0, 0, 0.4) 16px 24px 20px 8px" }}
             >
               <div className="flex items-center gap-4">
@@ -78,11 +84,15 @@ export default function Services() {
                 brand voice. No generic content - just authentic storytelling
                 that drives real engagement and conversions.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 2 */}
-            <div
-              className="glass-panel-purple bg-[#0D0D0D]/60 rounded-[20px] p-8 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
+              className="glass-panel-purple bg-[#0D0D0D]/30 rounded-[20px] p-8 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
               style={{ boxShadow: "rgba(0, 0, 0, 0.4) 16px 24px 20px 8px" }}
             >
               <div className="flex items-center gap-4">
@@ -97,11 +107,15 @@ export default function Services() {
                 industry. Each creator is performance-verified to ensure your
                 investment delivers measurable ROI.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 3 */}
-            <div
-              className="glass-panel-purple bg-[#0D0D0D]/60 rounded-[20px] p-8 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+              className="glass-panel-purple bg-[#0D0D0D]/30 rounded-[20px] p-8 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
               style={{ boxShadow: "rgba(0, 0, 0, 0.4) 16px 24px 20px 8px" }}
             >
               <div className="flex items-center gap-4">
@@ -116,11 +130,15 @@ export default function Services() {
                 talent sourcing, brief distribution, quality control, and payout
                 logistics from end to end.
               </p>
-            </div>
+            </motion.div>
 
             {/* Card 4 */}
-            <div
-              className="glass-panel-purple bg-[#0D0D0D]/60 rounded-[20px] p-8 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+              className="glass-panel-purple bg-[#0D0D0D]/30 rounded-[20px] p-8 flex flex-col gap-5 transition-transform duration-300 hover:-translate-y-1"
               style={{ boxShadow: "rgba(0, 0, 0, 0.4) 16px 24px 20px 8px" }}
             >
               <div className="flex items-center gap-4">
@@ -135,7 +153,7 @@ export default function Services() {
                 simultaneously. We optimize aspect ratios, hooks, and pacing for
                 every individual algorithm.
               </p>
-            </div>
+            </motion.div>
           </div>
 
           {/* CTA Button */}

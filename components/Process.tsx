@@ -66,7 +66,7 @@ export default function Process() {
             viewport={{ once: true }}
             className="h-full"
           >
-            <div className="flex flex-col h-full group glass-panel-purple rounded-[20px] overflow-hidden bg-[#0D0D0D]/60 shadow-[0_16px_24px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:-translate-y-1">
+            <div className="flex flex-col h-full group glass-panel-purple rounded-[20px] overflow-hidden bg-[#0D0D0D]/30 shadow-[0_16px_24px_rgba(0,0,0,0.4)] transition-transform duration-300 hover:-translate-y-1">
               <div
                 className={`h-48 w-full bg-linear-to-b ${step.gradient} relative flex items-center justify-center border-b border-white/5`}
               >

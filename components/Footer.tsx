@@ -24,7 +24,7 @@ export default function Footer() {
             Achieve More Than Ever <br className="hidden md:block" />
             Before with{" "}
             <span className="text-[#C084FC] font-serif italic text-[42px] md:text-[49px] font-normal">
-              Propaganda
+              Phantomclips
             </span>
           </h2>
 
@@ -48,7 +48,8 @@ export default function Footer() {
               style={{
                 background:
                   "linear-gradient(180deg, rgb(168, 85, 247) 0%, rgb(126, 34, 206) 100%)",
-                boxShadow: "rgba(168, 85, 247, 0.62) 0px 1px 41px 0px",
+                boxShadow: "rgba(168, 85, 247, 0.6) 0px 0px 35px 0px",
+                border: "3px solid #E9D5FF",
               }}
             >
               <span className="text-white font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] leading-7 uppercase block text-center">
@@ -60,9 +61,9 @@ export default function Footer() {
           {/* Secondary CTA */}
           <Link
             href="/case-studies"
-            className="group transition-transform duration-300 hover:scale-105 block"
+            className="group transition-transform duration-300 hover:scale-105 block border-[3px] border-[#E9D5FF] rounded-[52px] shadow-[0_0_25px_rgba(168,85,247,0.4)] bg-[#C084FC]/10"
           >
-            <span className="text-[#C084FC] font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] leading-7 uppercase text-center block py-3.5 px-4">
+            <span className="text-[#C084FC] group-hover:text-white transition-colors duration-300 font-extrabold text-[18px] md:text-[21px] tracking-[-0.6px] leading-7 uppercase text-center block py-3.5 px-6">
               See Case Studies
             </span>
           </Link>

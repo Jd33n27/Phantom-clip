@@ -9,7 +9,7 @@ export default function PurpleDustGrid() {
     size: Math.random() * 4 + 1, // 1px to 5px
     duration: Math.random() * 15 + 10, // 10s to 25s falling animation speed
     delay: Math.random() * -25, // Negative delay so the screen is pre-filled with dust
-    opacity: Math.random() * 0.5 + 0.2, // 0.2 to 0.7 base opacity
+    opacity: Math.random() * 0.5 + 0.5, // 0.5 to 1.0 base opacity for more brightness
     sway: Math.random() * 40 - 20, // Random horizontal drift between -20px and 20px
   }));
 
@@ -32,12 +32,13 @@ export default function PurpleDustGrid() {
         {particles.map((p) => (
           <motion.div
             key={p.id}
-            className="absolute rounded-full bg-[#A855F7] blur-[1px]"
+            className="absolute rounded-full bg-[#E9D5FF] blur-[0.5px]"
             style={{
               left: p.left,
               width: p.size,
               height: p.size,
-              boxShadow: "0 0 8px 2px rgba(168, 85, 247, 0.4)", // Purple glow
+              boxShadow:
+                "0 0 10px 3px rgba(192, 132, 252, 0.9), 0 0 20px 6px rgba(168, 85, 247, 0.6)", // Intense double purple glow
             }}
             initial={{ top: "-10%", x: 0, opacity: 0 }}
             animate={{

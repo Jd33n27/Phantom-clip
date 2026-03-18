@@ -118,8 +118,8 @@ export default function Faq() {
                 className="glass-panel-purple rounded-[20px] overflow-hidden transition-all duration-300"
                 style={{
                   backgroundColor: isOpen
-                    ? "rgba(13, 13, 13, 0.8)"
-                    : "rgba(13, 13, 13, 0.4)",
+                    ? "rgba(13, 13, 13, 0.5)"
+                    : "rgba(13, 13, 13, 0.2)",
                   boxShadow: isOpen
                     ? "rgba(0, 0, 0, 0.4) 0px 18px 20px 8px"
                     : "none",
